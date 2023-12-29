@@ -20,15 +20,37 @@
 
 # Anchors
 # TODO: add anchors for re-used strings
+definitons:
+  name: &my_name "Emi Brown"
+
+  #logo: &logo_img "/assets/images/88x88.png"
+  #teaser: &teaser_img /assets/images/500x300.png
+  avatar: &avatar_img "/assets/images/bio-photo.png"
+
+  links: &socials
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/EmiCB"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/emi-brown-75472a183"
+    #- label: "X"
+    #  icon: "fab fa-fw fa-twitter-square"
+    #  url: "https://twitter.com/mmistakes"
+    #- label: "Instagram"
+    #  icon: "fab fa-fw fa-instagram"
+    #  url: "https://instagram.com/mmistakes"
 
 # Minimal Mistakes custom variables
 locale: "en-US"
 
 title_separator: "|"
-title: Emi Brown
+title: *my_name
 #subtitle: "Version 2.0"
 #masthead_title: "My Custom Title" # uses website title by default
-name: "Emi Brown"
+name: *my_name
+#  Description will appear in your document head meta (for
+#  Google search results) and in your feed.xml site description.
 description: >- # this means to ignore newlines until "next_param:"
   Emi Brown's portfolio website.
 
@@ -59,59 +81,21 @@ search: true
 lunr:
   search_within_pages: true
 
-# SNS
-social:
-  type:  # Person or Organization (defaults to Person)
-  name:  # If the user or organization name differs from the site's name
-  links:
-    #- "https://twitter.com/yourTwitter"
-    #- "https://www.facebook.com/yourFacebook"
-    #- "https://instagram.com/yourProfile"
-    - "https://www.linkedin.com/in/emi-brown-75472a183"
-
 # Side bar
 author:
-  name: "Emi Brown"
-  #avatar: "/assets/images/bio-photo.jpg"
+  name: *my_name
+  avatar: *avatar_img
   bio: "I like developing video games for education. GoogleCardboard is cool." # Note: Markdown is allowed
   #location: "Somewhere"
-  links:
-    #- label: "Made Mistakes"
-    #  icon: "fas fa-fw fa-link"
-    #  url: "https://mademistakes.com"
-    #- label: "X"
-    #  icon: "fab fa-fw fa-twitter-square"
-    #  url: "https://twitter.com/mmistakes"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/EmiCB"
-    #- label: "Instagram"
-    #  icon: "fab fa-fw fa-instagram"
-    #  url: "https://instagram.com/mmistakes"
+  links: *socials
 
 # Footer
 footer:
-  links:
-    #- label: "Twitter"
-    #  icon: "fab fa-fw fa-twitter-square"
-    #  url: "https://twitter.com/mmistakes"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/EmiCB"
-    #- label: "Instagram"
-    #  icon: "fab fa-fw fa-instagram"
-    #  url: "https://instagram.com/mmistakes"
+  links: *socials
 
-# Default Jekyll variables
-#title: Emi Brown
-#email: your-email@example.com
-#description: >- # this means to ignore newlines until "baseurl:"
-#  line in _config.yml. It will appear in your document head meta (for
-#  Google search results) and in your feed.xml site description.
+# URL settings
 #baseurl: "" # the subpath of your site, e.g. /blog
 #url: "" # the base hostname & protocol for your site, e.g. http://example.com
-#twitter_username: jekyllrb
-#github_username:  jekyll
 
 # Build settings
 theme: minimal-mistakes-jekyll
