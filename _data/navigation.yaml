@@ -1,0 +1,7 @@
+main:
+  - title: "Resume"
+    url: /assets/documents/EmiBrownResume.pdf
+  - title: "Portfolio"
+    url: /portfolio/
+  - title: "Blog"
+    url: /posts/
