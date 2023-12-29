@@ -73,6 +73,17 @@ defaults:
       comments: false
       share: false
       related: false
+  # _portfolio
+  - scope:
+      path: ""
+      type: portfolio
+    values:
+      layout: single
+      author_profile: true
+      read_time: false
+      comments: false
+      share: false
+      related: false
 
 date_format: "%Y-%m-%d"
 
@@ -92,6 +103,12 @@ author:
 # Footer
 footer:
   links: *socials
+
+# Collections
+collections:
+  portfolio:
+    output: true
+    permalink: /:collection/:path/
 
 # URL settings
 #baseurl: "" # the subpath of your site, e.g. /blog
