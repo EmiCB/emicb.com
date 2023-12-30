@@ -122,7 +122,7 @@ collections:
 #url: "https://emicb.com/" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
-theme: minimal-mistakes-jekyll
+# use Minimal Mistakes theme: https://github.com/mmistakes/minimal-mistakes
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 plugins:
   - jekyll-feed
