@@ -123,9 +123,10 @@ collections:
 
 # Build settings
 # use Minimal Mistakes theme: https://github.com/mmistakes/minimal-mistakes
-remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+remote_theme: "mmistakes/minimal-mistakes@4.26.2"
 plugins:
   - jekyll-feed
+  - jekyll-include-cache
 
 # Include
 include: ["_pages"]
