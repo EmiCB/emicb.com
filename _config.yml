@@ -18,8 +18,23 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
-email: your-email@example.com
+# Anchors
+definitons:
+  name: &my_name "Emi Brown"
+  links: &socials
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/EmiCB"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/emi-brown-75472a183"
+
+# Includes
+include:
+  - _pages
+
+# Site data
+title: *my_name
 description: >- # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
@@ -29,10 +44,21 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 
+# Page excerpts
+page_excerpts: true
+excerpt_separator: <!--more-->
+
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
+
+# Collections
+collections_dir: collections
+collections:
+ - games
+ - projects
+ - blog
 
 # Exclude from processing.
 # The following items will not be processed, by default.
