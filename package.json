@@ -1,0 +1,19 @@
+{
+  "name": "emicb.com",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "serve": "rm -rf build/* && bun run build.js && bundle exec jekyll serve",
+    "livereload": "rm -rf build/* && bun run build.js && bundle exec jekyll serve --livereload"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "skin3d": "^0.0.12"
+  }
+}

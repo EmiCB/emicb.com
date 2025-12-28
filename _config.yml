@@ -79,3 +79,10 @@ collections:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+exclude:
+  - node_modules
+  - package.json
+  - bun.lockb
+  - build.js
+  - _src
