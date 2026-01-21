@@ -56,9 +56,12 @@ plugins:
 # Collections
 collections_dir: collections
 collections:
- - games
- - projects
- - blog
+ games:
+  output: true
+ projects:
+  output: true
+ blog:
+  output: true
 
 # Exclude from processing.
 # The following items will not be processed, by default.

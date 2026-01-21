@@ -1,0 +1,18 @@
+---
+layout: expanded-default
+---
+<head>
+  <link rel="stylesheet" href="{{ '/assets/css/test.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+</head>
+
+<article class="post">
+
+  <header class="post-header center-text">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+  </header>
+
+  <div class="gallery-content">
+    {{ content }}
+  </div>
+
+</article>
