@@ -215,31 +215,307 @@ $max-adjacent-cards: 3;
 }
 
 /* Game Page Styling */
-.game-links-container {
-  border: 1px 1px 1px 1px;
-  border-style: solid;
-  border-color: green;
+
+/* Header */
+.game-page-header {
+  text-align: center;
+  margin-bottom: 20px;
+  
+  .post-title {
+    font-size: 2.5em;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  
+  .post-meta {
+    color: #666;
+    font-size: 0.95em;
+    margin: 0;
+  }
 }
 
+/* Excerpt Box */
+.game-excerpt-box {
+  background-color: #f8f9fa;
+  border-left: 4px solid #0066cc;
+  padding: 15px 20px;
+  margin: 15px 0;
+  font-size: 1.05em;
+  line-height: 1.5;
+  color: #555;
+  border-radius: 4px;
+}
+
+/* Tags */
 .game-tags-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
   justify-content: center;
   margin: 15px 0;
   
   .game-tag {
     display: inline-block;
-    background-color: #f0f0f0;
-    color: #333;
+    background-color: #e8f4ff;
+    color: #0066cc;
+    border: 1px solid #b3d9ff;
     border-radius: 16px;
-    padding: 6px 14px;
-    font-size: 0.85em;
+    padding: 8px 16px;
+    font-size: 0.9em;
     font-weight: 500;
-    transition: background-color 0.2s ease;
+    transition: all 0.2s ease;
     
     &:hover {
-      background-color: #e0e0e0;
+      background-color: #d1e9ff;
+      border-color: #0066cc;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+/* Gallery Carousel */
+.game-gallery-section {
+  margin: 20px 0;
+}
+
+.game-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #000;
+  
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+  }
+  
+  .carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    
+    &.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  }
+  
+  .game-video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.15s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 0;
+    
+    &:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+    
+    &.carousel-prev {
+      left: 0;
+    }
+    
+    &.carousel-next {
+      right: 0;
+    }
+  }
+  
+  .carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    
+    .indicator {
+      width: 30px;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.5);
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      padding: 0;
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.75);
+      }
+      
+      &.active {
+        background: #0066cc;
+      }
+    }
+  }
+}
+
+/* Itch.io Embed */
+.game-itch-embed {
+  margin: 30px auto;
+  max-width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #000;
+  
+  iframe {
+    display: block;
+    border: none;
+    width: 100%;
+  }
+}
+
+/* Links Section */
+.game-links-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin: 15px 0 20px 0;
+  
+  .game-link-button {
+    position: relative;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 25px;
+    padding: 12px 28px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+    
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+      
+      &::before {
+        opacity: 1;
+      }
+    }
+    
+    &:active {
+      transform: translateY(-1px);
+    }
+    
+    // Special styling for specific link types
+    &[href*="itch.io"] {
+      background: linear-gradient(135deg, #fa5c5c 0%, #e85d75 100%);
+      box-shadow: 0 4px 15px rgba(250, 92, 92, 0.4);
+      
+      &::before {
+        background: linear-gradient(135deg, #e85d75 0%, #fa5c5c 100%);
+      }
+      
+      &:hover {
+        box-shadow: 0 6px 20px rgba(250, 92, 92, 0.6);
+      }
+    }
+    
+    &[href*="github"] {
+      background: linear-gradient(135deg, #24292e 0%, #4a5568 100%);
+      box-shadow: 0 4px 15px rgba(36, 41, 46, 0.4);
+      
+      &::before {
+        background: linear-gradient(135deg, #4a5568 0%, #24292e 100%);
+      }
+      
+      &:hover {
+        box-shadow: 0 6px 20px rgba(36, 41, 46, 0.6);
+      }
+    }
+  }
+}
+
+/* Content Area */
+.post-content {
+  margin-top: 25px;
+  
+  h2 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.6em;
+  }
+  
+  h3 {
+    margin-top: 20px;
+    margin-bottom: 12px;
+  }
+  
+  p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
+  
+  ul, ol {
+    margin-bottom: 15px;
+    
+    li {
+      margin-bottom: 6px;
     }
   }
 }
