@@ -7,18 +7,25 @@ layout: home
   <link rel="stylesheet" href="{{ '/assets/css/test.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 </head>
 
-<!-- My info -->
-<div class="bio-container">
-  <p>Hi, I'm Emi</p>
-  <p>I love making games for education</p>
+<!-- Homepage content container -->
+<div class="homepage-container">
+  <!-- Minecraft skin -->
+  <div class="skin-container">
+    <canvas id="skin_view_container"></canvas>
+  </div>
+  
+  <!-- My info -->
+  <div class="bio-container">
+    <p>Hi, I'm Emi</p>
+    <p>I love making games for education</p>
 
-  <a href="/games/"><button class="button-link-home">Games</button></a>
-  <a href="/projects/"><button class="button-link-home">Projects</button></a>
-  <a href="/resume/"><button class="button-link-home">Resume</button></a>
+    <div class="button-row">
+      <a href="/games/"><button class="button-link-home">Games</button></a>
+      <a href="/projects/"><button class="button-link-home">Projects</button></a>
+      <a href="/resume/"><button class="button-link-home">Resume</button></a>
+    </div>
+  </div>
 </div>
-
-<!-- Minecraft skin -->
-<canvas id="skin_view_container"></canvas>
 
 <!-- Scripts -->
 <script src="build/minecraft-skin.js" type="module"></script>
