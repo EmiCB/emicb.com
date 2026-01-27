@@ -9,6 +9,9 @@ category: jam
 featured_image:
 video: 
 gallery:
+- /assets/images/500x300.png
+- /assets/images/500x300.png
+- /assets/images/500x300.png
 
 itch_embed_url: "https://itch.io/embed/2889855"
 
