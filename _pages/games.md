@@ -14,9 +14,9 @@ permalink: /games/
     <!-- Featured image -->
     {%- if game.featured_image -%}
       {% assign featured_image = game.asset_root | append: game.featured_image %}
-      <img src="{{ featured_image }}" alt="{{ game.title | escape }}">
+      <img src="{{ featured_image | relative_url }}" alt="{{ game.title | escape }}">
     {%- else -%}
-      <img src="/assets/images/500x300.png" alt="{{ game.title | escape }} thumbnail">
+      <img src="{{ '/assets/images/500x300.png' | relative_url }}" alt="{{ game.title | escape }} thumbnail">
     {%- endif -%}
     <!-- Title and date -->
     <h3><a tabindex="0" role="button" aria-pressed="false" href="{{ game.url | relative_url }}" class="game-card-link">{{ game.title | escape }}</a></h3>
@@ -52,9 +52,9 @@ permalink: /games/
     <!-- Featured image -->
     {%- if game.featured_image -%}
       {% assign featured_image = game.asset_root | append: game.featured_image %}
-      <img src="{{ featured_image }}" alt="{{ game.title | escape }}">
+      <img src="{{ featured_image | relative_url }}" alt="{{ game.title | escape }}">
     {%- else -%}
-      <img src="/assets/images/500x300.png" alt="{{ game.title | escape }} thumbnail">
+      <img src="{{ '/assets/images/500x300.png' | relative_url }}" alt="{{ game.title | escape }} thumbnail">
     {%- endif -%}
     <!-- Title and date -->
     <h3><a tabindex="0" role="button" aria-pressed="false" href="{{ game.url | relative_url }}" class="game-card-link">{{ game.title | escape }}</a></h3>
@@ -95,9 +95,9 @@ permalink: /games/
     <!-- Featured image -->
     {%- if game.featured_image -%}
       {% assign featured_image = game.asset_root | append: game.featured_image %}
-      <img src="{{ featured_image }}" alt="{{ game.title | escape }}">
+      <img src="{{ featured_image | relative_url }}" alt="{{ game.title | escape }}">
     {%- else -%}
-      <img src="/assets/images/500x300.png" alt="{{ game.title | escape }} thumbnail">
+      <img src="{{ '/assets/images/500x300.png' | relative_url }}" alt="{{ game.title | escape }} thumbnail">
     {%- endif -%}
     <!-- Title and date -->
     <h3><a tabindex="0" role="button" aria-pressed="false" href="{{ game.url | relative_url }}" class="game-card-link">{{ game.title | escape }}</a></h3>

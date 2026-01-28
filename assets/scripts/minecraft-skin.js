@@ -9,7 +9,7 @@ const viewer = new skin3d.View({
   canvas: document.getElementById("skin_view_container"),
   width: 400,
   height: 600,
-  skin: "assets/images/skin.png"
+  skin: "/emicb.com/assets/images/skin.png"
 });
 
 // Set up animation

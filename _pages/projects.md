@@ -11,9 +11,9 @@ permalink: /projects/
   <article class="game-card">
     <!-- Featured image -->
     {%- if project.featured_image -%}
-      <img src="{{ project.featured_image }}" alt="{{ project.title | escape }}">
+      <img src="{{ project.featured_image | relative_url }}" alt="{{ project.title | escape }}">
     {%- else -%}
-      <img src="/assets/images/500x300.png" alt="{{ project.title | escape }} thumbnail">
+      <img src="{{ '/assets/images/500x300.png' | relative_url }}" alt="{{ project.title | escape }} thumbnail">
     {%- endif -%}
     <!-- Title and date -->
     <h3><a tabindex="0" role="button" aria-pressed="false" href="{{ project.url | relative_url }}" class="game-card-link">{{ project.title | escape }}</a></h3>

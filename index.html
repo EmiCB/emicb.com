@@ -20,9 +20,9 @@ layout: home
     <p>I'm a programmer who's interested in making games for educational and medical fields.</p>
 
     <div class="button-row">
-      <a href="/games/"><button class="button-link-home">Games</button></a>
-      <a href="/projects/"><button class="button-link-home">Projects</button></a>
-      <a href="/resume/"><button class="button-link-home">Resume</button></a>
+      <a href="{{ '/games/' | relative_url }}"><button class="button-link-home">Games</button></a>
+      <a href="{{ '/projects/' | relative_url }}"><button class="button-link-home">Projects</button></a>
+      <a href="{{ '/resume/' | relative_url }}"><button class="button-link-home">Resume</button></a>
     </div>
   </div>
 </div>
@@ -38,9 +38,9 @@ layout: home
         <!-- Featured image -->
         {%- if game.featured_image -%}
           {% assign featured_image = game.asset_root | append: game.featured_image %}
-          <img src="{{ featured_image }}" alt="{{ game.title | escape }}">
+          <img src="{{ featured_image | relative_url }}" alt="{{ game.title | escape }}">
         {%- else -%}
-          <img src="/assets/images/500x300.png" alt="{{ game.title | escape }} thumbnail">
+          <img src="{{ '/assets/images/500x300.png' | relative_url }}" alt="{{ game.title | escape }} thumbnail">
         {%- endif -%}
         <!-- Title and date -->
         <h3><a tabindex="0" role="button" aria-pressed="false" href="{{ game.url | relative_url }}" class="game-card-link">{{ game.title | escape }}</a></h3>
@@ -66,9 +66,9 @@ layout: home
   </div>
   
   <div class="center-text" style="margin-top: 30px;">
-    <a href="/games/"><button class="button-link-home">View All Games</button></a>
+    <a href="{{ '/games/' | relative_url }}"><button class="button-link-home">View All Games</button></a>
   </div>
 </div>
 
 <!-- Scripts -->
-<script src="build/minecraft-skin.js" type="module"></script>
+<script src="{{ '/build/minecraft-skin.js' | relative_url }}" type="module"></script>

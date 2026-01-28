@@ -2,7 +2,7 @@
 layout: default
 ---
 <head>
-  <link rel="stylesheet" href="../assets/css/test.css">
+  <link rel="stylesheet" href="{{ '/assets/css/test.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 </head>
 
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
@@ -73,7 +73,7 @@ layout: default
         {% for image in page.gallery %}
           {% assign image_path = page.asset_root | append: image %}
           <div class="carousel-slide{% if page.video == null and forloop.first %} active{% endif %}" data-type="image">
-            <img src="{{ image_path }}" alt="{{ page.title }} screenshot {{ forloop.index }}" loading="lazy">
+            <img src="{{ image_path | relative_url }}" alt="{{ page.title }} screenshot {{ forloop.index }}" loading="lazy">
           </div>
         {%- endfor -%}
         {%- endif -%}
@@ -110,7 +110,7 @@ layout: default
     </div>
   </div>
   
-  <script src="../assets/scripts/carousel.js"></script>
+  <script src="{{ '/assets/scripts/carousel.js' | relative_url }}"></script>
   {%- endif -%}
 
   <!-- Links -->
