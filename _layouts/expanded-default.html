@@ -3,10 +3,6 @@
 
   {%- include head.html -%}
 
-  <head>
-    <link rel="stylesheet" href="{{ '/assets/css/test.css' | relative_url }}?v={{ site.time | date: '%s' }}">
-  </head>
-
   <body>
 
     {%- include header.html -%}
@@ -21,4 +17,5 @@
 
   </body>
 
+  <script src="{{ '/assets/scripts/theme-toggle.js' | relative_url }}"></script>
 </html>

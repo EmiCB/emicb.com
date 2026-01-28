@@ -34,16 +34,15 @@ Virtual reality app for iOS and Android to allow students to visualize molecular
 
 <!--more-->
 
-Project with Professor Schleife for the NCSA SPIN program at UIUC (2017)
+This started as a project with Professor Schleife for the NCSA SPIN program at UIUC (2017).
 
 ## Features
-
-https://github.com/aschleife/MaterialsVR
 
 - Auto-generating molecule list
 - Gaze input - stare at a button or object for 2 seconds to select it (hands-free)
 - Rotate molecules
 - Drag and drop molecules to any position
+- Desktop VR version here: https://github.com/aschleife/MaterialsVR
 
 ## My Contributions
 

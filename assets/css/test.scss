@@ -7,16 +7,23 @@
 
 // Colors
 $primary-bg-color-light: white;
+$primary-bg-color-dark: #1a1a1a;
 
 $primary-accent-color: #0066cc;
-$primary-accent-color-dark: #b3d9ff;
+$primary-accent-color-dark: #3d8fd1;
+$primary-accent-color-dark-hover: #5ba3db;
 $primary-accent-color-medium: #e8f4ff;
 $primary-accent-color-light: #d1e9ff;
 
 $text-gray: #666;
 $text-dark-gray: #555;
+$text-gray-dark-mode: #b3b3b3;
+$text-dark-gray-dark-mode: #d4d4d4;
 $border-gray: #e0e0e0;
+$border-gray-dark-mode: #404040;
 $bg-light-gray: #f8f9fa;
+$bg-light-gray-dark-mode: #2a2a2a;
+$grey-color-dark: #424242;
 $gradient-purple-start: #667eea;
 $gradient-purple-end: #764ba2;
 $gradient-red-start: #fa5c5c;
@@ -24,6 +31,7 @@ $gradient-red-end: #e85d75;
 $gradient-dark-start: #24292e;
 $gradient-dark-end: #4a5568;
 $black: #000;
+$white: #fff;
 
 // Spacing
 $spacing-unit: 30px !default;
@@ -645,17 +653,221 @@ $shadow-dark-large: 0 6px 20px rgba(36, 41, 46, 0.6);
 
 .resume-viewer {
   width: 100%;
+  max-width: $content-width;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
 }
 
 .resume-pdf {
   width: 100%;
-  height: 1100px;
+  height: auto;
+  min-height: 800px;
+  max-height: 1400px;
   border: 1px solid $border-gray;
   border-radius: $border-radius-small;
   
   @media screen and (max-width: $breakpoint-mobile) {
-    height: 800px;
+    min-height: 600px;
+  }
+}
+
+/* Theme Toggle */
+.site-title-container {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-medium;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $border-radius-medium;
+  transition: all $transition-normal;
+  color: $text-dark-gray;
+  
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+    transform: scale(1.1);
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+  
+  svg {
+    display: block;
+    background: none;
+  }
+  
+  .sun-icon,
+  .moon-icon {
+    transition: opacity $transition-normal, transform $transition-normal;
+    background: none;
+  }
+  
+  .moon-icon {
+    display: none;
+  }
+}
+
+/* Dark Mode Styles */
+[data-theme="dark"] {
+  background-color: $primary-bg-color-dark;
+  
+  * {
+    background-color: transparent;
+    color: $text-dark-gray-dark-mode;
+  }
+  
+  body {
+    background-color: $primary-bg-color-dark;
+  }
+  
+  .site-header {
+    background-color: $primary-bg-color-dark;
+    border-top-color: $border-gray-dark-mode;
+    border-bottom-color: $border-gray-dark-mode;
+    
+    .site-title {
+      color: $text-dark-gray-dark-mode;
+    }
+    
+    .page-link {
+      color: $text-dark-gray-dark-mode;
+      
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+  
+  .theme-toggle {
+    color: $text-dark-gray-dark-mode;
+    
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.12);
+    }
+    
+    .sun-icon {
+      display: none;
+    }
+    
+    .moon-icon {
+      display: block;
+    }
+  }
+  
+  .homepage-container,
+  .gallery-content,
+  .page-content {
+    background-color: $primary-bg-color-dark;
+  }
+  
+  .game-card {
+    background-color: $bg-light-gray-dark-mode;
+    border-color: $border-gray-dark-mode;
+    
+    * {
+      background-color: transparent;
+    }
+    
+    h3 .game-card-link {
+      color: $primary-accent-color-dark;
+      
+      &:hover {
+        color: $primary-accent-color-dark-hover;
+      }
+    }
+    
+    p {
+      color: $text-gray-dark-mode;
+    }
+    
+    .game-excerpt {
+      color: $text-dark-gray-dark-mode;
+    }
+  }
+  
+  .game-page-header {
+    .post-title {
+      color: $white;
+    }
+  }
+  
+  .game-excerpt-box {
+    background-color: $bg-light-gray-dark-mode;
+    color: $text-dark-gray-dark-mode;
+    border-left-color: $primary-accent-color-dark;
+  }
+  
+  .button-link-home {
+    background-color: $primary-accent-color-dark;
+    color: $white !important;
+    border-color: $primary-accent-color-dark-hover;
+    
+    * {
+      color: $white !important;
+    }
+    
+    &:hover {
+      background-color: $primary-accent-color-dark-hover;
+      border-color: $primary-accent-color-dark;
+    }
+  }
+  
+  .resume-download-button {
+    background-color: $primary-accent-color-dark;
+    color: $white !important;
+    border-color: $primary-accent-color-dark-hover;
+    
+    * {
+      color: $white !important;
+    }
+    
+    &:hover {
+      background-color: $primary-accent-color-dark-hover;
+      border-color: $primary-accent-color-dark;
+    }
+  }
+  
+  .resume-pdf {
+    border-color: $border-gray-dark-mode;
+  }
+  
+  .post-meta {
+    color: $text-gray-dark-mode;
+  }
+  
+  .game-tag {
+    background-color: $primary-accent-color-dark;
+    color: $white !important;
+    border-color: $primary-accent-color-dark-hover;
+    
+    * {
+      color: $white !important;
+    }
+    
+    &:hover {
+      background-color: $primary-accent-color-dark-hover;
+      border-color: $primary-accent-color-dark;
+    }
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: $white;
+  }
+  
+  a {
+    color: $primary-accent-color-dark;
+    
+    &:hover {
+      color: $primary-accent-color-dark-hover;
+    }
   }
 }

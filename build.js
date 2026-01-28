@@ -1,7 +1,8 @@
 await Bun.build({
   entrypoints: [
     './assets/scripts/minecraft-skin.js',
-    './assets/scripts/carousel.js'
+    './assets/scripts/carousel.js',
+    './assets/scripts/theme-toggle.js'
   ],
   outdir: './build',
   minify: true,

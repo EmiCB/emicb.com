@@ -14,7 +14,7 @@ resume_path: "/assets/documents/Emi-Brown-Resume_Blank.pdf"
   </div>
   
   <div class="resume-viewer">
-    <object data="{{ page.resume_path }}" type="application/pdf" class="resume-pdf">
+    <object data="{{ page.resume_path }}#view=FitH&zoom=page-fit" type="application/pdf" class="resume-pdf">
       <p>Unable to display this PDF file. <a href="{{ page.resume_path }}" type="application/pdf">Download Resume PDF</a> instead.</p>
     </object>
   </div>
