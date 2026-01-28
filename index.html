@@ -17,7 +17,7 @@ layout: home
   <!-- My info -->
   <div class="bio-container">
     <p>Hi, I'm Emi</p>
-    <p>I love making games for education</p>
+    <p>I'm a programmer who's interested in making games for educational and medical fields.</p>
 
     <div class="button-row">
       <a href="/games/"><button class="button-link-home">Games</button></a>
@@ -31,13 +31,14 @@ layout: home
 <div class="recent-games-section">
   <h2 class="center-text">Recent Games</h2>
   
-  <div class="gallery-content">
+  <div class="gallery-section">
     {% assign recent_games = site.games | reverse %}
     {% for game in recent_games limit:3 %}
       <article class="game-card">
         <!-- Featured image -->
         {%- if game.featured_image -%}
-          <img src="{{ game.featured_image }}" alt="{{ game.title | escape }}">
+          {% assign featured_image = game.asset_root | append: game.featured_image %}
+          <img src="{{ featured_image }}" alt="{{ game.title | escape }}">
         {%- else -%}
           <img src="/assets/images/500x300.png" alt="{{ game.title | escape }} thumbnail">
         {%- endif -%}
@@ -45,10 +46,16 @@ layout: home
         <h3><a tabindex="0" role="button" aria-pressed="false" href="{{ game.url | relative_url }}" class="game-card-link">{{ game.title | escape }}</a></h3>
         <p>{{ game.date_range }}</p>
         <!-- Tags -->
-        {%- if game.tags -%}
+        {%- if game.tags or game.design_tags or game.team_type -%}
           <div class="game-tags-container">
+            {%- if game.team_type -%}
+              <span class="game-tag tag-team">{{ game.team_type | upcase }}</span>
+            {%- endif -%}
             {%- for tag in game.tags -%}
-              <span class="game-tag">{{ tag | escape }}</span>
+              <span class="game-tag tag-technical">{{ tag | escape }}</span>
+            {%- endfor -%}
+            {%- for tag in game.design_tags -%}
+              <span class="game-tag tag-design">{{ tag | escape }}</span>
             {%- endfor -%}
           </div>
         {%- endif -%}

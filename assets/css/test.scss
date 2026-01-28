@@ -33,6 +33,28 @@ $gradient-dark-end: #4a5568;
 $black: #000;
 $white: #fff;
 
+// Tag colors
+$tag-technical-bg: #e8f4ff;
+$tag-technical-border: #3d8fd1;
+$tag-technical-text: #0066cc;
+$tag-technical-bg-dark: #1e3a5f;
+$tag-technical-border-dark: #5ba3db;
+$tag-technical-text-dark: #a3d5ff;
+
+$tag-design-bg: #f3e5f5;
+$tag-design-border: #8e24aa;
+$tag-design-text: #6a1b9a;
+$tag-design-bg-dark: #3a1e47;
+$tag-design-border-dark: #ba68c8;
+$tag-design-text-dark: #e1bee7;
+
+$tag-team-bg: #fff9c4;
+$tag-team-border: #f57f17;
+$tag-team-text: #e65100;
+$tag-team-bg-dark: #4a3f1a;
+$tag-team-border-dark: #ffb74d;
+$tag-team-text-dark: #ffe082;
+
 // Spacing
 $spacing-unit: 30px !default;
 $spacing-small: 10px;
@@ -203,12 +225,30 @@ $shadow-dark-large: 0 6px 20px rgba(36, 41, 46, 0.6);
 
 /* Gallery */
 .gallery-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-large;
+}
+
+.gallery-section-header {
+  font-size: 1.8em;
+  margin: $spacing-xxlarge 0 $spacing-large 0;
+  text-align: center;
+  color: $text-dark-gray;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.gallery-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: $spacing-xlarge;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: $spacing-large;
+  margin-bottom: $spacing-xxlarge;
   
   @media (min-width: $breakpoint-desktop) {
     grid-template-columns: repeat(3, 1fr);
@@ -307,6 +347,29 @@ $shadow-dark-large: 0 6px 20px rgba(36, 41, 46, 0.6);
     color: $text-gray;
     font-size: 0.95em;
     margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-medium;
+    flex-wrap: wrap;
+  }
+  
+  .team-type-display {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.95em;
+    color: $text-dark-gray;
+    padding: 4px 12px;
+    background-color: $bg-light-gray;
+    border-radius: $border-radius-large;
+  }
+  
+  .my-role {
+    color: $text-gray;
+    font-size: 0.9em;
+    margin: 4px 0 0 0;
+    font-style: italic;
   }
 }
 
@@ -326,26 +389,125 @@ $shadow-dark-large: 0 6px 20px rgba(36, 41, 46, 0.6);
 .game-tags-container {
   display: flex;
   flex-wrap: wrap;
-  gap: $spacing-small;
+  gap: 6px;
   justify-content: center;
   margin: $spacing-medium 0;
+  position: relative;
+  z-index: 2;
   
   .game-tag {
     display: inline-block;
-    background-color: $primary-accent-color-medium;
-    color: $primary-accent-color;
-    border: 1px solid $primary-accent-color-dark;
-    border-radius: $border-radius-large;
-    padding: 8px 16px;
-    font-size: 0.9em;
+    border-radius: $border-radius-medium;
+    padding: 4px 12px;
+    font-size: 0.8em;
     font-weight: 500;
     transition: all $transition-normal;
+    border: 1px solid;
+    
+    &.tag-technical {
+      background-color: $tag-technical-bg;
+      color: $tag-technical-text;
+      border-color: $tag-technical-border;
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 2px 8px rgba(61, 143, 209, 0.3);
+      }
+    }
+    
+    &.tag-design {
+      background-color: $tag-design-bg;
+      color: $tag-design-text;
+      border-color: $tag-design-border;
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 2px 8px rgba(142, 36, 170, 0.3);
+      }
+    }
+    
+    &.tag-team {
+      background-color: $tag-team-bg;
+      color: $tag-team-text;
+      border-color: $tag-team-border;
+      font-weight: 600;
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 2px 8px rgba(245, 127, 23, 0.3);
+      }
+    }
+  }
+}
+
+/* Design Documentation */
+.design-documentation {
+  margin: $spacing-xlarge 0;
+  border: 1px solid $border-gray;
+  border-radius: $border-radius-medium;
+  background-color: $bg-light-gray;
+  overflow: hidden;
+  
+  summary {
+    padding: $spacing-medium $spacing-large;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    background-color: $white;
+    transition: background-color $transition-normal;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: $spacing-small;
+    
+    &::-webkit-details-marker {
+      display: none;
+    }
+    
+    &::before {
+      content: '▶';
+      display: inline-block;
+      transition: transform $transition-normal;
+      font-size: 0.8em;
+    }
     
     &:hover {
-      background-color: $primary-accent-color-light;
-      border-color: $primary-accent-color;
-      transform: translateY(-2px);
+      background-color: $bg-light-gray;
     }
+  }
+  
+  &[open] summary::before {
+    transform: rotate(90deg);
+  }
+  
+  & > *:not(summary) {
+    padding: $spacing-large;
+    line-height: 1.6;
+  }
+  
+  h3 {
+    margin-top: $spacing-large;
+    margin-bottom: $spacing-small;
+    font-size: 1.2em;
+    color: $primary-accent-color;
+    
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  
+  ul, ol {
+    margin: $spacing-small 0;
+    padding-left: $spacing-large;
+    
+    li {
+      margin-bottom: $spacing-small;
+    }
+  }
+  
+  p {
+    margin-bottom: $spacing-medium;
   }
 }
 
@@ -769,6 +931,10 @@ $shadow-dark-large: 0 6px 20px rgba(36, 41, 46, 0.6);
     background-color: $primary-bg-color-dark;
   }
   
+  .gallery-section-header {
+    color: $text-dark-gray-dark-mode;
+  }
+  
   .game-card {
     background-color: $bg-light-gray-dark-mode;
     border-color: $border-gray-dark-mode;
@@ -798,12 +964,61 @@ $shadow-dark-large: 0 6px 20px rgba(36, 41, 46, 0.6);
     .post-title {
       color: $white;
     }
+    
+    .team-type-display {
+      background-color: $bg-light-gray-dark-mode;
+      color: $text-dark-gray-dark-mode;
+    }
+    
+    .my-role {
+      color: $text-gray-dark-mode;
+    }
   }
   
   .game-excerpt-box {
     background-color: $bg-light-gray-dark-mode;
     color: $text-dark-gray-dark-mode;
     border-left-color: $primary-accent-color-dark;
+  }
+  
+  .game-tags-container {
+    .game-tag {
+      &.tag-technical {
+        background-color: $tag-technical-bg-dark;
+        color: $tag-technical-text-dark;
+        border-color: $tag-technical-border-dark;
+      }
+      
+      &.tag-design {
+        background-color: $tag-design-bg-dark;
+        color: $tag-design-text-dark;
+        border-color: $tag-design-border-dark;
+      }
+      
+      &.tag-team {
+        background-color: $tag-team-bg-dark;
+        color: $tag-team-text-dark;
+        border-color: $tag-team-border-dark;
+      }
+    }
+  }
+  
+  .design-documentation {
+    background-color: $bg-light-gray-dark-mode;
+    border-color: $border-gray-dark-mode;
+    
+    summary {
+      background-color: $bg-light-gray-dark-mode;
+      color: $white;
+      
+      &:hover {
+        background-color: lighten($bg-light-gray-dark-mode, 5%);
+      }
+    }
+    
+    h3 {
+      color: $primary-accent-color-dark;
+    }
   }
   
   .button-link-home {
@@ -842,21 +1057,6 @@ $shadow-dark-large: 0 6px 20px rgba(36, 41, 46, 0.6);
   
   .post-meta {
     color: $text-gray-dark-mode;
-  }
-  
-  .game-tag {
-    background-color: $primary-accent-color-dark;
-    color: $white !important;
-    border-color: $primary-accent-color-dark-hover;
-    
-    * {
-      color: $white !important;
-    }
-    
-    &:hover {
-      background-color: $primary-accent-color-dark-hover;
-      border-color: $primary-accent-color-dark;
-    }
   }
   
   h1, h2, h3, h4, h5, h6 {

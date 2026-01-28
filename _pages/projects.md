@@ -5,6 +5,7 @@ permalink: /projects/
 ---
 
 <!-- Sort projects from newest to oldest -->
+<div class="gallery-section">
 {% assign projects = site.projects | reverse %}
 {% for project in projects %}
   <article class="game-card">
@@ -29,3 +30,4 @@ permalink: /projects/
     <div class="game-excerpt">{{ project.excerpt }}</div>
   </article>
 {% endfor %}
+</div>

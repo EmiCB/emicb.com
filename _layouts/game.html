@@ -14,7 +14,19 @@ layout: default
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
         {{ page.date | date: date_format }}
       </time>
+      {%- if page.team_type -%}
+      <span class="team-type-display">
+        {%- if page.team_type == "solo" -%}
+          Solo Project
+        {%- else -%}
+          {{ page.team_type | capitalize }} Team
+        {%- endif -%}
+      </span>
+      {%- endif -%}
     </p>
+    {%- if page.my_role -%}
+    <p class="my-role">{{ page.my_role }}</p>
+    {%- endif -%}
   </header>
 
   <!-- Excerpt Box -->
@@ -25,15 +37,19 @@ layout: default
   {%- endif -%}
 
   <!-- Tags -->
-  {%- if page.tags -%}
+  {%- if page.tags or page.design_tags or page.team_type -%}
   <div class="game-tags-container">
+    {%- if page.team_type -%}
+      <span class="game-tag tag-team">{{ page.team_type | upcase }}</span>
+    {%- endif -%}
     {% for tag in page.tags %}
-      <span class="game-tag">{{ tag | escape }}</span>
+      <span class="game-tag tag-technical">{{ tag | escape }}</span>
+    {%- endfor -%}
+    {% for tag in page.design_tags %}
+      <span class="game-tag tag-design">{{ tag | escape }}</span>
     {%- endfor -%}
   </div>
   {%- endif -%}
-
-  
 
   <!-- Gallery Carousel -->
   {%- if page.gallery or page.video -%}
@@ -52,11 +68,12 @@ layout: default
           </div>
         </div>
         {%- endif -%}
-        
+        asset_root
         {%- if page.gallery -%}
         {% for image in page.gallery %}
+          {% assign image_path = page.asset_root | append: image %}
           <div class="carousel-slide{% if page.video == null and forloop.first %} active{% endif %}" data-type="image">
-            <img src="{{ image }}" alt="{{ page.title }} screenshot {{ forloop.index }}" loading="lazy">
+            <img src="{{ image_path }}" alt="{{ page.title }} screenshot {{ forloop.index }}" loading="lazy">
           </div>
         {%- endfor -%}
         {%- endif -%}
@@ -114,4 +131,17 @@ layout: default
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
 
+<!-- Scripts -->
 <script src="{{ '/assets/scripts/theme-toggle.js' | relative_url }}"></script>
+
+<!-- TODO: split out? -->
+<script>
+  document.addEventListener("keydown", e => {
+    if (e.key === "`") {
+      document
+        .querySelectorAll("details.design-documentation")
+        .forEach(d => d.open = !d.open);
+    }
+  });
+</script>
+
