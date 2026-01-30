@@ -255,6 +255,43 @@ $shadow-dark-large: 0 6px 20px rgba(36, 41, 46, 0.6);
   }
 }
 
+/* Draft Indicators */
+.draft-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #ff9800;
+  color: $white;
+  padding: 6px 16px;
+  font-size: 0.75em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom-left-radius: $border-radius-medium;
+  border-top-right-radius: $border-radius-medium;
+  box-shadow: 0 2px 8px rgba(255, 152, 0, 0.4);
+  z-index: 10;
+}
+
+.draft-banner {
+  background-color: #fff3cd;
+  border: 2px solid #ff9800;
+  border-radius: $border-radius-medium;
+  padding: $spacing-medium $spacing-large;
+  margin-bottom: $spacing-large;
+  text-align: center;
+  color: #856404;
+  font-size: 1em;
+  
+  * {
+    background-color: transparent;
+  }
+  
+  strong {
+    color: #e65100;
+  }
+}
+
 /* Game Cards */
 .game-card {
   border: 1px solid $border-gray;
@@ -1099,6 +1136,22 @@ $shadow-dark-large: 0 6px 20px rgba(36, 41, 46, 0.6);
     
     &:hover {
       color: $primary-accent-color-dark-hover;
+    }
+  }
+  
+  .draft-badge {
+    background-color: #f57c00;
+    color: $white;
+    box-shadow: 0 2px 8px rgba(245, 124, 0, 0.6);
+  }
+  
+  .draft-banner {
+    background-color: #4a3f1a;
+    border-color: #f57c00;
+    color: #ffb74d;
+    
+    strong {
+      color: #ff9800;
     }
   }
 }

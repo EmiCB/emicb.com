@@ -5,6 +5,7 @@ title: "Blood Barter"
 date: 2024-08-11
 date_range: "Aug 2024"
 category: jam
+is_draft: false
 
 asset_root: "/assets/images/games/blood-barter/"
 featured_image: "gameplay-1.png"

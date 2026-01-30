@@ -5,6 +5,7 @@ title: "Glitch"
 date: 2022-05-7
 date_range: "May 2022"
 category: coursework
+is_draft: true
 
 asset_root: 
 featured_image: 

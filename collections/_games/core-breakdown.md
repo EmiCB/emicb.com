@@ -5,6 +5,7 @@ title: "Core Breakdown"
 date: 2017-05-18
 date_range: "May 2017"
 category: jam
+is_draft: true
 
 featured_image:
 video:

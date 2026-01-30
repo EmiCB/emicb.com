@@ -7,6 +7,13 @@ layout: default
 
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
+  <!-- Draft banner -->
+  {%- if page.is_draft -%}
+  <div class="draft-banner">
+    <strong>Work in Progress:</strong> This entry is still being written and may be incomplete.
+  </div>
+  {%- endif -%}
+
   <header class="post-header game-page-header">
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
     <p class="post-meta">

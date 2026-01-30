@@ -16,7 +16,11 @@ permalink: /games/
 <h2 class="gallery-section-header">Coursework</h2>
 <div class="gallery-section">
   {% for game in coursework_games %}
-  <article class="game-card">
+  <article class="game-card{% if game.is_draft %} is-draft{% endif %}">
+    <!-- Draft badge -->
+    {%- if game.is_draft -%}
+      <div class="draft-badge">WIP</div>
+    {%- endif -%}
     <!-- Featured image -->
     {%- if game.featured_image -%}
       {% assign featured_image = game.asset_root | append: game.featured_image %}
@@ -54,7 +58,11 @@ permalink: /games/
 <h2 class="gallery-section-header">Personal</h2>
 <div class="gallery-section">
   {% for game in personal_games %}
-  <article class="game-card">
+  <article class="game-card{% if game.is_draft %} is-draft{% endif %}">
+    <!-- Draft badge -->
+    {%- if game.is_draft -%}
+      <div class="draft-badge">WIP</div>
+    {%- endif -%}
     <!-- Featured image -->
     {%- if game.featured_image -%}
       {% assign featured_image = game.asset_root | append: game.featured_image %}
@@ -92,7 +100,11 @@ permalink: /games/
 <h2 class="gallery-section-header">Game Jams</h2>
 <div class="gallery-section">
   {% for game in jam_games %}
-  <article class="game-card">
+  <article class="game-card{% if game.is_draft %} is-draft{% endif %}">
+    <!-- Draft badge -->
+    {%- if game.is_draft -%}
+      <div class="draft-badge">WIP</div>
+    {%- endif -%}
     <!-- Featured image -->
     {%- if game.featured_image -%}
       {% assign featured_image = game.asset_root | append: game.featured_image %}

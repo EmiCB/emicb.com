@@ -34,7 +34,11 @@ layout: home
   <div class="gallery-section">
     {% assign recent_games = site.games | reverse %}
     {% for game in recent_games limit:3 %}
-      <article class="game-card">
+      <article class="game-card{% if game.is_draft %} is-draft{% endif %}">
+        <!-- Draft badge -->
+        {%- if game.is_draft -%}
+          <div class="draft-badge">WIP</div>
+        {%- endif -%}
         <!-- Featured image -->
         {%- if game.featured_image -%}
           {% assign featured_image = game.asset_root | append: game.featured_image %}
