@@ -4,8 +4,8 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "serve": "rm -rf build/* && bun run build.js && bundle exec jekyll serve",
-    "livereload": "rm -rf build/* && bun run build.js && bundle exec jekyll serve --livereload"
+    "serve": "rm -rf build/* && bun run build.js && bundle exec jekyll serve --baseurl '/emicb.com'",
+    "livereload": "rm -rf build/* && bun run build.js && bundle exec jekyll serve --livereload --baseurl '/emicb.com'"
   },
   "devDependencies": {
     "@types/bun": "latest"

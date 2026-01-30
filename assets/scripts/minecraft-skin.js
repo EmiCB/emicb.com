@@ -5,11 +5,13 @@
 import * as skin3d from 'skin3d';
 
 // Set up viewport
+const canvas = document.getElementById("skin_view_container");
+const skinUrl = canvas.getAttribute('data-skin-url');
 const viewer = new skin3d.View({
-  canvas: document.getElementById("skin_view_container"),
+  canvas: canvas,
   width: 400,
   height: 600,
-  skin: "/emicb.com/assets/images/skin.png"
+  skin: skinUrl
 });
 
 // Set up animation
