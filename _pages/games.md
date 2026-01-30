@@ -4,6 +4,12 @@ title: Games
 permalink: /games/
 ---
 
+<div class="game-tags-container">
+  <span class="game-tag tag-team">Team Size</span>
+  <span class="game-tag tag-technical">Technical Tags</span>
+  <span class="game-tag tag-design">Design Tags</span>
+</div>
+
 <!-- Coursework Section -->
 {% assign coursework_games = site.games | where: "category", "coursework" | reverse %}
 {% if coursework_games.size > 0 %}
@@ -84,11 +90,6 @@ permalink: /games/
 {% assign jam_games = site.games | where: "category", "jam" | reverse %}
 {% if jam_games.size > 0 %}
 <h2 class="gallery-section-header">Game Jams</h2>
-<div class="game-tags-container">
-  <span class="game-tag tag-team">Team Size</span>
-  <span class="game-tag tag-technical">Technical Tags</span>
-  <span class="game-tag tag-design">Design Tags</span>
-</div>
 <div class="gallery-section">
   {% for game in jam_games %}
   <article class="game-card">

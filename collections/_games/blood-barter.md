@@ -8,7 +8,7 @@ category: jam
 
 asset_root: "/assets/images/games/blood-barter/"
 featured_image: "gameplay-1.png"
-video: 
+videos: 
 gallery:
 - "title-screen.png"
 - "gameplay-1.png"
@@ -105,7 +105,7 @@ These custom messages are written in each `Location` node via the Godot editor. 
 
 To handle travelling between adjacent locations, adding items, and adding trades, there is a `LocationManager` script. This script links the `Pathways` between locations by using the root location's `create_pathway_to_location()` method. `Pathway` is a custom Godot `Resource` that keeps track of which `Locations` are linekd together and if either end is currently locked (unreachable by the player, allows for one-way pathways). It also defines items and adds trades to each root location using their built in methods `add_item_to_location` and `add_trade_to_location()`.
 
-### Inventory: Items and Body Parts
+### Inventory: Items & Body Parts
 The inventory utilizes Godot's `Resource` to define `Item` data. The inventory is two `Item` arrays (one for items and one for body parts) stored in the `Player`. Both lists can be viewed in-game via the "reflect" command. The `Player` script also contains functions to add/remove from either array to be utilized by the in-game commands.
 
 ### Trades & Consequences

@@ -395,6 +395,32 @@ $shadow-dark-large: 0 6px 20px rgba(36, 41, 46, 0.6);
   position: relative;
   z-index: 2;
   
+  /* Sticky legend box styling when used at top of page */
+  &:first-child {
+    position: sticky;
+    top: $spacing-small;
+    float: right;
+    margin-left: $spacing-large;
+    margin-bottom: -60px;
+    width: fit-content;
+    background-color: $white;
+    padding: $spacing-small $spacing-medium;
+    border: 1px solid $border-gray;
+    border-radius: $border-radius-medium;
+    box-shadow: $shadow-small;
+    z-index: 100;
+    flex-wrap: nowrap;
+    
+    @media screen and (max-width: $breakpoint-mobile) {
+      position: static;
+      float: none;
+      width: 100%;
+      flex-wrap: wrap;
+      margin-left: 0;
+      margin-bottom: $spacing-medium;
+    }
+  }
+  
   .game-tag {
     display: inline-block;
     border-radius: $border-radius-medium;
@@ -982,6 +1008,11 @@ $shadow-dark-large: 0 6px 20px rgba(36, 41, 46, 0.6);
   }
   
   .game-tags-container {
+    &:first-child {
+      background-color: $bg-light-gray-dark-mode;
+      border-color: $border-gray-dark-mode;
+    }
+    
     .game-tag {
       &.tag-technical {
         background-color: $tag-technical-bg-dark;
