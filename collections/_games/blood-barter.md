@@ -39,7 +39,7 @@ links:
   icon: 
 ---
 
-Text-based adventure game exploring the concept of sacrifice, where players navigate and trade in a mysterious night market.
+Text-based adventure game exploring the concept of sacrifice, where players navigate and trade in a mysterious night market
 
 <!--more-->
 
