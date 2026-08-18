@@ -1,0 +1,14 @@
+services:
+  jekyll:
+    build: .
+    ports:
+      - "4000:4000"
+      - "35729:35729" # livereload
+    volumes:
+      - .:/site
+      - bundle_cache:/usr/local/bundle # keep gems out of your local folder
+      - node_modules_cache:/site/node_modules # keep bun deps out of your local folder
+
+volumes:
+  bundle_cache:
+  node_modules_cache:
