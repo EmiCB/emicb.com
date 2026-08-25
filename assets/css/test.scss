@@ -826,6 +826,29 @@ $shadow-dark-large: 0 6px 20px rgba(36, 41, 46, 0.6);
   text-align: center;
 }
 
+.center-content {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+/* About Me Page */
+.about-me-container {
+  max-width: $content-width;
+  margin: 0 auto;
+  padding: $spacing-large;
+}
+
+.about-me-photo {
+  display: block;
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto $spacing-large auto;
+  clip-path: circle();
+}
+
 /* Resume Page */
 .resume-container {
   max-width: $content-width;

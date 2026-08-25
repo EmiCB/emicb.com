@@ -4,7 +4,7 @@ title: Resume
 permalink: /resume/
 
 date: 2025-11-24
-resume_path: "/assets/documents/Emi-Brown-Resume_Blank.pdf"
+resume_path: "/assets/documents/Emi_Brown_Resume_Blank.pdf"
 ---
 
 <div class="resume-container">
