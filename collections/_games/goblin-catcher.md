@@ -33,11 +33,20 @@ Push all of the goblins! This is a fantasy spin on Thief Catcher, the first proj
 
 <!--more-->
 
-This is a fantasy spin on Thief Catcher, the first project for my **GSD 511: Game Development I** course.
+This is a fantasy spin on Thief Catcher, the first project for my **GSD 511: Game Development I** course. Push all of the goblins in the pool to win. The current playable version is the newest one!
 
-v1.0
+## v1.0 - Lecture Version
+- `Rigidbody2D` player and enemies w/ movement controlled by applying forces
+- Uses `Signals` to detect when enemy enters goal area and execute relevant code
+- Enemies are removed and play a sound when pushed into the goal area
+- Particle system to highlight the goal area
 
-v2.0 (current embedded version)
+## v2.0 - Expanded Version (for fun)
+- Updated player to use `CharacterBody2D` for better movement feel
+- Added custom physics calculation for player collisions with enemies to keep the pushing mechanic
+- Added physics material to make enemies bounce off of surfaces (keeps them from being stuck on area bounds)
+- Added `Game Controller` to track progress
+- Added a win screen that appears after all enemies are moved into the goal area
 
 ## Asset Attributions
 - All art is from [Sunnyside World](https://danieldiggle.itch.io/sunnyside) by DanielDiggle on itch.io
