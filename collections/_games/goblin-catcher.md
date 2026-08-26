@@ -5,10 +5,11 @@ title: "Goblin Catcher"
 date: 2026-08-25
 date_range: "August 2026"
 category: coursework
-is_draft: true
+is_draft: false
 
 asset_root: "/assets/images/games/goblin-catcher/"
-featured_image:
+featured_image: "main-screen.png"
+itch_embed_id: 18962734
 videos:
 gallery:
 
@@ -17,7 +18,6 @@ tags:
 - Godot
 - GDScript
 - Web
-
 
 # Team Info
 team_type: "solo"
@@ -29,11 +29,15 @@ links:
   icon:
 ---
 
-Push all of the goblins!
+Push all of the goblins! This is a fantasy spin on Thief Catcher, the first project for my GSD 511 course
 
 <!--more-->
 
-This is my first project for my **GSD 511: Game Development I** course.
+This is a fantasy spin on Thief Catcher, the first project for my **GSD 511: Game Development I** course.
+
+v1.0
+
+v2.0 (current embedded version)
 
 ## Asset Attributions
 - All art is from [Sunnyside World](https://danieldiggle.itch.io/sunnyside) by DanielDiggle on itch.io

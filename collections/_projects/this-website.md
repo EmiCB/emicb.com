@@ -15,6 +15,7 @@ tags:
 - JS
 - Jekyll
 - Bun
+- Docker
 
 links:
 - name: "View source on Github"
@@ -26,7 +27,13 @@ The website you're on right now!
 
 <!--more-->
 
+Since this site is still in development, some things may still look a little rough for now!
+
 ## Features
+- built using Jekyll and custom theming with SCSS and HTML
+- hosted with Github Pages
+- live-reload development page hosted in Docker
+- using Bun to build custom JS
 
 ## My Contributions
 

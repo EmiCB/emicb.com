@@ -34,7 +34,7 @@ links:
   icon:
 ---
 
-Defend your core from waves of enemies!
+Defend your core from waves of enemies on this Fortnite island
 
 <!--more-->
 

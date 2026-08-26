@@ -59,12 +59,24 @@ layout: default
   {%- endif -%}
 
   <!-- Gallery Carousel -->
-  {%- if page.gallery or page.video or page.videos -%}
+  {%- if page.gallery or page.video or page.videos or page.itch_embed_id -%}
   <div class="game-gallery-section">
     <div class="game-carousel">
       <div class="carousel-container">
+        {%- if page.itch_embed_id -%}
+        <div class="carousel-slide active" data-type="itch-embed">
+          <div class="game-itch-embed-container">
+            <span class="playable-badge">▶ Playable</span>
+            <iframe
+              src="https://itch.io/embed-upload/{{ page.itch_embed_id }}?color=333333"
+              frameborder="0"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+        {%- endif -%}
         {%- if page.video -%}
-        <div class="carousel-slide active" data-type="video">
+        <div class="carousel-slide{% if page.itch_embed_id == null %} active{% endif %}" data-type="video">
           <div class="game-video-container">
             <iframe 
               src="{{ page.video }}" 
@@ -77,7 +89,7 @@ layout: default
         {%- endif -%}
         {%- if page.videos -%}
         {% for video_url in page.videos %}
-          <div class="carousel-slide{% if page.video == null and forloop.first %} active{% endif %}" data-type="video">
+          <div class="carousel-slide{% if page.itch_embed_id == null and page.video == null and forloop.first %} active{% endif %}" data-type="video">
             <div class="game-video-container">
               <iframe 
                 src="{{ video_url }}" 
@@ -93,7 +105,7 @@ layout: default
         {%- if page.gallery -%}
         {% for image in page.gallery %}
           {% assign image_path = page.asset_root | append: image %}
-          <div class="carousel-slide{% if page.video == null and page.videos == null and forloop.first %} active{% endif %}" data-type="image">
+          <div class="carousel-slide{% if page.itch_embed_id == null and page.video == null and page.videos == null and forloop.first %} active{% endif %}" data-type="image">
             <img src="{{ image_path | relative_url }}" alt="{{ page.title }} screenshot {{ forloop.index }}" loading="lazy">
           </div>
         {%- endfor -%}
@@ -101,6 +113,9 @@ layout: default
       </div>
       
       {%- assign total_items = 0 -%}
+      {%- if page.itch_embed_id -%}
+        {%- assign total_items = total_items | plus: 1 -%}
+      {%- endif -%}
       {%- if page.video -%}
         {%- assign total_items = total_items | plus: 1 -%}
       {%- endif -%}
@@ -116,22 +131,35 @@ layout: default
       <button class="carousel-btn carousel-next" aria-label="Next slide">›</button>
       
       <div class="carousel-indicators">
-        {%- if page.video -%}
+        {%- if page.itch_embed_id -%}
         <button class="indicator active" data-slide="0" aria-label="Go to slide 1"></button>
+        {%- endif -%}
+        {%- if page.video -%}
+        {%- assign slide_index = 0 -%}
+        {%- if page.itch_embed_id -%}
+          {%- assign slide_index = slide_index | plus: 1 -%}
+        {%- endif -%}
+        <button class="indicator{% if page.itch_embed_id == null %} active{% endif %}" data-slide="{{ slide_index }}" aria-label="Go to slide {{ slide_index | plus: 1 }}"></button>
         {%- endif -%}
         {%- if page.videos -%}
         {% for video_url in page.videos %}
           {%- assign slide_index = forloop.index -%}
+          {%- if page.itch_embed_id -%}
+            {%- assign slide_index = slide_index | plus: 1 -%}
+          {%- endif -%}
           {%- if page.video -%}
             {%- assign slide_index = slide_index | plus: 1 -%}
           {%- endif -%}
           {%- assign slide_num = slide_index | minus: 1 -%}
-          <button class="indicator{% if page.video == null and forloop.first %} active{% endif %}" data-slide="{{ slide_num }}" aria-label="Go to slide {{ slide_index }}"></button>
+          <button class="indicator{% if page.itch_embed_id == null and page.video == null and forloop.first %} active{% endif %}" data-slide="{{ slide_num }}" aria-label="Go to slide {{ slide_index }}"></button>
         {%- endfor -%}
         {%- endif -%}
         {%- if page.gallery -%}
         {% for image in page.gallery %}
           {%- assign videos_count = 0 -%}
+          {%- if page.itch_embed_id -%}
+            {%- assign videos_count = videos_count | plus: 1 -%}
+          {%- endif -%}
           {%- if page.video -%}
             {%- assign videos_count = videos_count | plus: 1 -%}
           {%- endif -%}
@@ -140,7 +168,7 @@ layout: default
           {%- endif -%}
           {%- assign slide_index = forloop.index | plus: videos_count -%}
           {%- assign slide_num = slide_index | minus: 1 -%}
-          <button class="indicator{% if page.video == null and page.videos == null and forloop.first %} active{% endif %}" data-slide="{{ slide_num }}" aria-label="Go to slide {{ slide_index }}"></button>
+          <button class="indicator{% if page.itch_embed_id == null and page.video == null and page.videos == null and forloop.first %} active{% endif %}" data-slide="{{ slide_num }}" aria-label="Go to slide {{ slide_index }}"></button>
         {%- endfor -%}
         {%- endif -%}
       </div>
