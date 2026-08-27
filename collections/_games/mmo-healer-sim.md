@@ -7,15 +7,23 @@ date_range: "Apr 2020"
 category: jam
 is_draft: true
 
-featured_image:
+asset_root: "assets/images/games/mmo-healer-sim/"
+featured_image: "mmo-start.png"
 video:
 gallery:
+- "mmo-start.png"
+- "mmo-gameplay.png"
+- "mmo-game-over.png"
 
 tags:
 - Unity
 - C#
 - Aseprite
 - Beep Box
+
+# Team Info
+team_type: "solo"
+my_role: "Designer & Programmer"
 
 links:
 - name: "Play on itch.io"

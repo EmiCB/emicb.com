@@ -7,7 +7,8 @@ date_range: "Jan 2021"
 category: jam
 is_draft: true
 
-featured_image:
+asset_root: "assets/images/games/radiation-rush/"
+featured_image: "radiation-rush-screenshot.png"
 video:
 gallery:
 
@@ -15,6 +16,10 @@ tags:
 - Unity
 - C#
 - Aseprite
+
+# Team Info
+team_type: "2 person"
+my_role: "Programmer & Designer"
 
 links:
 - name: "Play on itch.io"
