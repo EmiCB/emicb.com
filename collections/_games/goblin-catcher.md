@@ -40,6 +40,7 @@ This is a fantasy spin on Thief Catcher, the first project for my **GSD 511: Gam
 - Uses `Signals` to detect when enemy enters goal area and execute relevant code
 - Enemies are removed and play a sound when pushed into the goal area
 - Particle system to highlight the goal area
+- `TileMapLayers` for the world construction
 
 ## v2.0 - Expanded Version (for fun)
 - Updated player to use `CharacterBody2D` for better movement feel
