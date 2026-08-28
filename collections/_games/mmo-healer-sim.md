@@ -32,8 +32,8 @@ links:
 - name: "View source on Github"
   url: "https://github.com/EmiCB/MMO-Healer-Simulator-2020"
   icon:
-- name: "View submission on Ludum Dare"
-  url: "https://ldjam.com/events/ludum-dare/46/mmo-healer-simulator-2020"
+- name: "View on ldj.am"
+  url: "https://ldj.am/46/mmo-healer-simulator-2020"
   icon:
 ---
 

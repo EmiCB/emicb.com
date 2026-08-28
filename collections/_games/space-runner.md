@@ -28,6 +28,9 @@ links:
 - name: "View source on Github"
   url: "https://github.com/EmiCB/LudumDare42-SpaceRunner"
   icon:
+- name: "View on ldj.am"
+  url: "https://ldj.am/42/space-runner-3"
+  icon:
 ---
 
 Run through an infinite alien planet as the space closes in around you

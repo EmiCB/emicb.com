@@ -5,9 +5,10 @@ title: "This Website!"
 date: 2026-08-25
 date_range: "Ongoing"
 
-featured_image:
+featured_image: "assets/images/homepage.png"
 video:
 gallery:
+- "assets/images/homepage.png"
 
 tags:
 - HTML
@@ -18,6 +19,9 @@ tags:
 - Docker
 
 links:
+- name: "View Site"
+  url: "https://emicb.com"
+  icon:
 - name: "View source on Github"
   url: "https://github.com/EmiCB/emicb.com"
   icon:

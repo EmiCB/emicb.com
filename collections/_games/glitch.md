@@ -28,6 +28,6 @@ my_role: "Programmer"
 
 links:
 - name: "View source on Github"
-  url: "https://github.com/EmiCB/Barbs-Dungeon"
+  url: "https://github.com/EmiCB/glitch-game"
   icon: 
 ---
