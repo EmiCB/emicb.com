@@ -20,15 +20,6 @@ permalink: /games/
   {%- endfor -%}
 {%- endfor -%}
 {%- assign technical_tag_options = technical_tag_options | sort_natural -%}
-{% if technical_tag_options.size > 0 %}
-<div class="game-filters-container" data-filter-group="technical">
-  <span class="game-filters-label">Filter by Technical Tag:</span>
-  {%- for tag in technical_tag_options -%}
-    <button type="button" class="game-filter-btn filter-technical" data-filter-value="{{ tag | slugify }}">{{ tag }}</button>
-  {%- endfor -%}
-  <button type="button" class="game-filter-clear" data-filter-clear="technical">Clear</button>
-</div>
-{% endif %}
 
 <!-- Design Tag Filters -->
 {%- assign design_tag_options = "" | split: "," -%}
@@ -40,15 +31,6 @@ permalink: /games/
   {%- endfor -%}
 {%- endfor -%}
 {%- assign design_tag_options = design_tag_options | sort_natural -%}
-{% if design_tag_options.size > 0 %}
-<div class="game-filters-container" data-filter-group="design">
-  <span class="game-filters-label">Filter by Design Tag:</span>
-  {%- for tag in design_tag_options -%}
-    <button type="button" class="game-filter-btn filter-design" data-filter-value="{{ tag | slugify }}">{{ tag }}</button>
-  {%- endfor -%}
-  <button type="button" class="game-filter-clear" data-filter-clear="design">Clear</button>
-</div>
-{% endif %}
 
 <!-- Team Size Filters -->
 {%- assign team_tag_options = "" | split: "," -%}
@@ -60,14 +42,44 @@ permalink: /games/
   {%- endif -%}
 {%- endfor -%}
 {%- assign team_tag_options = team_tag_options | sort_natural -%}
-{% if team_tag_options.size > 0 %}
-<div class="game-filters-container" data-filter-group="team">
-  <span class="game-filters-label">Filter by Team Size:</span>
-  {%- for team_type in team_tag_options -%}
-    <button type="button" class="game-filter-btn filter-team" data-filter-value="{{ team_type | slugify }}">{{ team_type | upcase }}</button>
-  {%- endfor -%}
-  <button type="button" class="game-filter-clear" data-filter-clear="team">Clear</button>
-</div>
+
+{% if technical_tag_options.size > 0 or design_tag_options.size > 0 or team_tag_options.size > 0 %}
+<details class="game-filters-panel">
+  <summary>Filters <span class="game-filters-count"></span></summary>
+  <div markdown="1">
+
+  {% if technical_tag_options.size > 0 %}
+  <div class="game-filters-container" data-filter-group="technical">
+    <span class="game-filters-label">Technical Tag:</span>
+    {%- for tag in technical_tag_options -%}
+      <button type="button" class="game-filter-btn filter-technical" data-filter-value="{{ tag | slugify }}">{{ tag }}</button>
+    {%- endfor -%}
+    <button type="button" class="game-filter-clear" data-filter-clear="technical">Clear</button>
+  </div>
+  {% endif %}
+
+  {% if design_tag_options.size > 0 %}
+  <div class="game-filters-container" data-filter-group="design">
+    <span class="game-filters-label">Design Tag:</span>
+    {%- for tag in design_tag_options -%}
+      <button type="button" class="game-filter-btn filter-design" data-filter-value="{{ tag | slugify }}">{{ tag }}</button>
+    {%- endfor -%}
+    <button type="button" class="game-filter-clear" data-filter-clear="design">Clear</button>
+  </div>
+  {% endif %}
+
+  {% if team_tag_options.size > 0 %}
+  <div class="game-filters-container" data-filter-group="team">
+    <span class="game-filters-label">Team Size:</span>
+    {%- for team_type in team_tag_options -%}
+      <button type="button" class="game-filter-btn filter-team" data-filter-value="{{ team_type | slugify }}">{{ team_type | upcase }}</button>
+    {%- endfor -%}
+    <button type="button" class="game-filter-clear" data-filter-clear="team">Clear</button>
+  </div>
+  {% endif %}
+
+  </div>
+</details>
 {% endif %}
 
 <!-- Coursework Section -->
@@ -86,14 +98,20 @@ permalink: /games/
 {%- endfor -%}
 {%- assign course_options = course_options | sort_natural -%}
 {% if course_options.size > 0 %}
-<div class="game-filters-container" data-filter-group="course" data-filter-scope="coursework-section" data-filter-single-select="true">
-  <span class="game-filters-label">Filter by Course:</span>
-  {%- for course in course_options -%}
-    {%- assign course_full_name = site.data.courses[course] | default: course -%}
-    <button type="button" class="game-filter-btn filter-course" data-filter-value="{{ course | slugify }}">{{ course_full_name }}</button>
-  {%- endfor -%}
-  <button type="button" class="game-filter-clear" data-filter-clear="course">Clear</button>
-</div>
+<details class="game-filters-panel game-filters-panel-course">
+  <summary>Filter by Course <span class="game-filters-count"></span></summary>
+  <div markdown="1">
+
+  <div class="game-filters-container" data-filter-group="course" data-filter-scope="coursework-section" data-filter-single-select="true">
+    {%- for course in course_options -%}
+      {%- assign course_full_name = site.data.courses[course] | default: course -%}
+      <button type="button" class="game-filter-btn filter-course" data-filter-value="{{ course | slugify }}">{{ course_full_name }}</button>
+    {%- endfor -%}
+    <button type="button" class="game-filter-clear" data-filter-clear="course">Clear</button>
+  </div>
+
+  </div>
+</details>
 {% endif %}
 
 <div class="gallery-section" data-filter-scope-container="coursework-section">

@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (filterGroups.length === 0) return;
   
   const gameCards = document.querySelectorAll('.game-card');
+  const filterPanels = document.querySelectorAll('.game-filters-panel');
   
   // Tracks the set of active filter values per filter group (e.g. "technical" -> Set of tag slugs)
   const activeFiltersByGroup = new Map();
@@ -31,6 +32,16 @@ document.addEventListener('DOMContentLoaded', function() {
     return cardValues.some(value => activeValues.has(value));
   }
   
+  function updateFilterCountBadges() {
+    filterPanels.forEach(panel => {
+      const countBadge = panel.querySelector('.game-filters-count');
+      if (!countBadge) return;
+      
+      const activeCount = panel.querySelectorAll('.game-filter-btn.active').length;
+      countBadge.textContent = activeCount > 0 ? activeCount : '';
+    });
+  }
+  
   function applyFilters() {
     gameCards.forEach(card => {
       const cardScope = card.closest('[data-filter-scope-container]');
@@ -46,6 +57,8 @@ document.addEventListener('DOMContentLoaded', function() {
       
       card.classList.toggle('is-hidden', !matchesAllGroups);
     });
+    
+    updateFilterCountBadges();
   }
   
   filterGroups.forEach(filterGroup => {

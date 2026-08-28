@@ -266,6 +266,71 @@ $shadow-dark-large: 0 6px 20px rgba(36, 41, 46, 0.6);
 }
 
 /* Game Filters */
+.game-filters-panel {
+  max-width: 900px;
+  margin: $spacing-large auto;
+  border: 1px solid $border-gray;
+  border-radius: $border-radius-medium;
+  background-color: $bg-light-gray;
+  overflow: hidden;
+  
+  summary {
+    padding: $spacing-small $spacing-large;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    background-color: $white;
+    transition: background-color $transition-normal;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-small;
+    
+    &::-webkit-details-marker {
+      display: none;
+    }
+    
+    &::before {
+      content: '▶';
+      display: inline-block;
+      transition: transform $transition-normal;
+      font-size: 0.75em;
+    }
+    
+    &:hover {
+      background-color: $bg-light-gray;
+    }
+  }
+  
+  &[open] summary::before {
+    transform: rotate(90deg);
+  }
+  
+  & > div {
+    padding: $spacing-medium $spacing-large;
+  }
+  
+  .game-filters-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    border-radius: $border-radius-pill;
+    background-color: $primary-accent-color;
+    color: $white;
+    font-size: 0.75em;
+    font-weight: 700;
+    
+    &:empty {
+      display: none;
+    }
+  }
+}
+
 .game-filters-container {
   display: flex;
   flex-wrap: wrap;
@@ -1158,6 +1223,20 @@ $shadow-dark-large: 0 6px 20px rgba(36, 41, 46, 0.6);
   
   .gallery-section-header {
     color: $text-dark-gray-dark-mode;
+  }
+  
+  .game-filters-panel {
+    background-color: $bg-light-gray-dark-mode;
+    border-color: $border-gray-dark-mode;
+    
+    summary {
+      background-color: $bg-light-gray-dark-mode;
+      color: $white;
+      
+      &:hover {
+        background-color: lighten($bg-light-gray-dark-mode, 5%);
+      }
+    }
   }
   
   .game-filters-container {
