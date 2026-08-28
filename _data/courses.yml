@@ -1,0 +1,7 @@
+# Maps course short codes (used in each game's `course` front matter field)
+# to their full course names, so games only need to store the short code
+# and full names can be looked up wherever needed (game pages, filter pills, etc).
+
+GSD 405: "GSD 405: Video Game Development Process"
+GSD 511: "GSD 511: Game Development I"
+UEFN Bootcamp: "UEFN Student Bootcamp"

@@ -55,6 +55,13 @@ $tag-team-bg-dark: #4a3f1a;
 $tag-team-border-dark: #ffb74d;
 $tag-team-text-dark: #ffe082;
 
+$tag-course-bg: #e8f5e9;
+$tag-course-border: #2e7d32;
+$tag-course-text: #1b5e20;
+$tag-course-bg-dark: #1b3a1e;
+$tag-course-border-dark: #66bb6a;
+$tag-course-text-dark: #a5d6a7;
+
 // Spacing
 $spacing-unit: 30px !default;
 $spacing-small: 10px;
@@ -294,6 +301,52 @@ $shadow-dark-large: 0 6px 20px rgba(36, 41, 46, 0.6);
     &.active {
       background-color: $tag-technical-border;
       color: $white;
+    }
+    
+    &.filter-design {
+      border-color: $tag-design-border;
+      background-color: $tag-design-bg;
+      color: $tag-design-text;
+      
+      &:hover {
+        box-shadow: 0 2px 8px rgba(142, 36, 170, 0.3);
+      }
+      
+      &.active {
+        background-color: $tag-design-border;
+        color: $white;
+      }
+    }
+    
+    &.filter-team {
+      border-color: $tag-team-border;
+      background-color: $tag-team-bg;
+      color: $tag-team-text;
+      font-weight: 600;
+      
+      &:hover {
+        box-shadow: 0 2px 8px rgba(245, 127, 23, 0.3);
+      }
+      
+      &.active {
+        background-color: $tag-team-border;
+        color: $white;
+      }
+    }
+    
+    &.filter-course {
+      border-color: $tag-course-border;
+      background-color: $tag-course-bg;
+      color: $tag-course-text;
+      
+      &:hover {
+        box-shadow: 0 2px 8px rgba(46, 125, 50, 0.3);
+      }
+      
+      &.active {
+        background-color: $tag-course-border;
+        color: $white;
+      }
     }
   }
   
@@ -1120,6 +1173,39 @@ $shadow-dark-large: 0 6px 20px rgba(36, 41, 46, 0.6);
       &.active {
         background-color: $tag-technical-border-dark;
         color: $primary-bg-color-dark;
+      }
+      
+      &.filter-design {
+        background-color: $tag-design-bg-dark;
+        color: $tag-design-text-dark;
+        border-color: $tag-design-border-dark;
+        
+        &.active {
+          background-color: $tag-design-border-dark;
+          color: $primary-bg-color-dark;
+        }
+      }
+      
+      &.filter-team {
+        background-color: $tag-team-bg-dark;
+        color: $tag-team-text-dark;
+        border-color: $tag-team-border-dark;
+        
+        &.active {
+          background-color: $tag-team-border-dark;
+          color: $primary-bg-color-dark;
+        }
+      }
+      
+      &.filter-course {
+        background-color: $tag-course-bg-dark;
+        color: $tag-course-text-dark;
+        border-color: $tag-course-border-dark;
+        
+        &.active {
+          background-color: $tag-course-border-dark;
+          color: $primary-bg-color-dark;
+        }
       }
     }
     

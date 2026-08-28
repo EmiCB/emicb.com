@@ -5,6 +5,7 @@ title: "Core TD"
 date: 2026-08-13
 date_range: "August 2026"
 category: coursework
+course: "UEFN Bootcamp"
 is_draft: true
 
 asset_root: "/assets/images/games/core-td/"

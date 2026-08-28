@@ -5,6 +5,7 @@ title: "Barb's Dungeon"
 date: 2024-05-10
 date_range: "May 2024"
 category: coursework
+course: "GSD 405"
 is_draft: false
 
 asset_root: "/assets/images/games/barbs-dungeon/"

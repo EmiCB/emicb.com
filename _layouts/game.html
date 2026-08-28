@@ -30,6 +30,9 @@ layout: default
         {%- endif -%}
       </span>
       {%- endif -%}
+      {%- if page.course -%}
+      <span class="team-type-display">{{ site.data.courses[page.course] | default: page.course }}</span>
+      {%- endif -%}
     </p>
     {%- if page.my_role -%}
     <p class="my-role">{{ page.my_role }}</p>

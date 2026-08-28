@@ -30,11 +30,73 @@ permalink: /games/
 </div>
 {% endif %}
 
+<!-- Design Tag Filters -->
+{%- assign design_tag_options = "" | split: "," -%}
+{%- for game in site.games -%}
+  {%- for tag in game.design_tags -%}
+    {%- unless design_tag_options contains tag -%}
+      {%- assign design_tag_options = design_tag_options | push: tag -%}
+    {%- endunless -%}
+  {%- endfor -%}
+{%- endfor -%}
+{%- assign design_tag_options = design_tag_options | sort_natural -%}
+{% if design_tag_options.size > 0 %}
+<div class="game-filters-container" data-filter-group="design">
+  <span class="game-filters-label">Filter by Design Tag:</span>
+  {%- for tag in design_tag_options -%}
+    <button type="button" class="game-filter-btn filter-design" data-filter-value="{{ tag | slugify }}">{{ tag }}</button>
+  {%- endfor -%}
+  <button type="button" class="game-filter-clear" data-filter-clear="design">Clear</button>
+</div>
+{% endif %}
+
+<!-- Team Size Filters -->
+{%- assign team_tag_options = "" | split: "," -%}
+{%- for game in site.games -%}
+  {%- if game.team_type -%}
+    {%- unless team_tag_options contains game.team_type -%}
+      {%- assign team_tag_options = team_tag_options | push: game.team_type -%}
+    {%- endunless -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign team_tag_options = team_tag_options | sort_natural -%}
+{% if team_tag_options.size > 0 %}
+<div class="game-filters-container" data-filter-group="team">
+  <span class="game-filters-label">Filter by Team Size:</span>
+  {%- for team_type in team_tag_options -%}
+    <button type="button" class="game-filter-btn filter-team" data-filter-value="{{ team_type | slugify }}">{{ team_type | upcase }}</button>
+  {%- endfor -%}
+  <button type="button" class="game-filter-clear" data-filter-clear="team">Clear</button>
+</div>
+{% endif %}
+
 <!-- Coursework Section -->
 {% assign coursework_games = site.games | where: "category", "coursework" | reverse %}
 {% if coursework_games.size > 0 %}
 <h2 class="gallery-section-header">Coursework</h2>
-<div class="gallery-section">
+
+<!-- Course Filters (single-select, scoped to Coursework section only) -->
+{%- assign course_options = "" | split: "," -%}
+{%- for game in coursework_games -%}
+  {%- if game.course -%}
+    {%- unless course_options contains game.course -%}
+      {%- assign course_options = course_options | push: game.course -%}
+    {%- endunless -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign course_options = course_options | sort_natural -%}
+{% if course_options.size > 0 %}
+<div class="game-filters-container" data-filter-group="course" data-filter-scope="coursework-section" data-filter-single-select="true">
+  <span class="game-filters-label">Filter by Course:</span>
+  {%- for course in course_options -%}
+    {%- assign course_full_name = site.data.courses[course] | default: course -%}
+    <button type="button" class="game-filter-btn filter-course" data-filter-value="{{ course | slugify }}">{{ course_full_name }}</button>
+  {%- endfor -%}
+  <button type="button" class="game-filter-clear" data-filter-clear="course">Clear</button>
+</div>
+{% endif %}
+
+<div class="gallery-section" data-filter-scope-container="coursework-section">
   {% for game in coursework_games %}
   {%- assign team_tag_slug = game.team_type | slugify -%}
   {%- assign technical_tag_slugs = "" -%}
@@ -47,7 +109,8 @@ permalink: /games/
     {%- assign tag_slug = tag | slugify -%}
     {%- assign design_tag_slugs = design_tag_slugs | append: tag_slug | append: " " -%}
   {%- endfor -%}
-  <article class="game-card{% if game.is_draft %} is-draft{% endif %}" data-team-tag="{{ team_tag_slug }}" data-technical-tags="{{ technical_tag_slugs | strip }}" data-design-tags="{{ design_tag_slugs | strip }}">
+  {%- assign course_slug = game.course | slugify -%}
+  <article class="game-card{% if game.is_draft %} is-draft{% endif %}" data-team-tag="{{ team_tag_slug }}" data-technical-tags="{{ technical_tag_slugs | strip }}" data-design-tags="{{ design_tag_slugs | strip }}" data-course="{{ course_slug }}">
     <!-- Draft badge -->
     {%- if game.is_draft -%}
       <div class="draft-badge">WIP</div>
