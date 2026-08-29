@@ -2,6 +2,9 @@
 # to their full course names, so games only need to store the short code
 # and full names can be looked up wherever needed (game pages, filter pills, etc).
 
+CS 498: "CS 498: Game Development"
 GSD 405: "GSD 405: Video Game Development Process"
 GSD 511: "GSD 511: Game Development I"
+GSD 551: "GSD 551: Contemporary Techniques for Programming of Games"
+GSD 561: "GSD 561: Contemporary Techniques in Writing for Games"
 UEFN Bootcamp: "UEFN Student Bootcamp"

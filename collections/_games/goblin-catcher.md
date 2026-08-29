@@ -36,6 +36,9 @@ Push all of the goblins! This is a fantasy spin on Thief Catcher, the first proj
 
 This is a fantasy spin on Thief Catcher, the first project for my **GSD 511: Game Development I** course. Push all of the goblins in the pool to win. The current playable version is the newest one!
 
+## Controls
+- Move with `W`, `A`, `S`, `D`
+
 ## v1.0 - Lecture Version
 - `Rigidbody2D` player and enemies w/ movement controlled by applying forces
 - Uses `Signals` to detect when enemy enters goal area and execute relevant code
@@ -50,6 +53,13 @@ This is a fantasy spin on Thief Catcher, the first project for my **GSD 511: Gam
 - Added `Game Controller` to track progress
 - Added a win screen that appears after all enemies are moved into the goal area
 
+## Planned Features
+- My own artwork for characters and landscape
+- UI for amount of goblins left
+- More SFX and some background music
+- Pause / setting menu
+- In-level obstacles
+
 ## Asset Attributions
-- All art is from [Sunnyside World](https://danieldiggle.itch.io/sunnyside) by DanielDiggle on itch.io
+- All art is currently from [Sunnyside World](https://danieldiggle.itch.io/sunnyside) by DanielDiggle on itch.io
 - Goblin capture sound: [Little Creature Hurt Sound](https://pixabay.com/sound-effects/film-special-effects-little-creature-hurt-sound-295405/) by Homemade_SDX on pixabay.com
