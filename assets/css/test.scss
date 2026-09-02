@@ -757,6 +757,41 @@ $shadow-dark-large: 0 6px 20px rgba(36, 41, 46, 0.6);
   }
 }
 
+/* Data Tables (e.g. exported CSV design data) */
+.data-table-wrapper {
+  margin: $spacing-medium 0;
+  overflow-x: auto;
+}
+
+.data-table-caption {
+  font-size: 0.85em;
+  color: $text-gray;
+  font-style: italic;
+  margin: 0 0 $spacing-small 0;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  
+  th, td {
+    padding: $spacing-small $spacing-medium;
+    text-align: left;
+    border: 1px solid $border-gray;
+  }
+  
+  th {
+    background-color: $bg-light-gray;
+    font-weight: 600;
+    color: $text-dark-gray;
+  }
+  
+  tr:nth-child(even) td {
+    background-color: $bg-light-gray;
+  }
+}
+
 /* Gallery Carousel */
 .game-gallery-section {
   margin: $spacing-large 0;
@@ -1051,6 +1086,88 @@ $shadow-dark-large: 0 6px 20px rgba(36, 41, 46, 0.6);
   height: auto;
   margin: 0 auto $spacing-large auto;
   clip-path: circle();
+}
+
+/* My Studio Page */
+.studio-container {
+  max-width: $content-width;
+  margin: 0 auto;
+  padding: $spacing-large;
+}
+
+.studio-header {
+  text-align: center;
+  margin-bottom: $spacing-xlarge;
+  
+  .studio-name {
+    font-size: 2.5em;
+    margin-bottom: $spacing-small;
+    font-weight: 700;
+  }
+  
+  .studio-tagline {
+    color: $text-gray;
+    font-size: 1.1em;
+    font-style: italic;
+    margin: 0;
+  }
+}
+
+.studio-facts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $spacing-small $spacing-large;
+  list-style: none;
+  margin: 0 0 $spacing-xlarge 0;
+  padding: $spacing-medium $spacing-large;
+  background-color: $bg-light-gray;
+  border-radius: $border-radius-medium;
+  
+  ul {
+    display: contents;
+  }
+  
+  li {
+    list-style: none;
+    font-size: 0.95em;
+  }
+  
+  strong {
+    color: $primary-accent-color;
+  }
+}
+
+.studio-team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: $spacing-large;
+  margin: $spacing-large 0;
+}
+
+.studio-team-member {
+  text-align: center;
+  
+  img {
+    width: 100%;
+    max-width: 160px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto $spacing-medium auto;
+    display: block;
+  }
+  
+  h3 {
+    margin: 0 0 4px 0;
+    font-size: 1.1em;
+  }
+  
+  p {
+    margin: 0;
+    color: $text-gray;
+    font-size: 0.9em;
+  }
 }
 
 /* Resume Page */
@@ -1458,6 +1575,49 @@ $shadow-dark-large: 0 6px 20px rgba(36, 41, 46, 0.6);
     
     strong {
       color: #ff9800;
+    }
+  }
+  
+  .studio-header {
+    .studio-name {
+      color: $white;
+    }
+    
+    .studio-tagline {
+      color: $text-gray-dark-mode;
+    }
+  }
+  
+  .studio-facts {
+    background-color: $bg-light-gray-dark-mode;
+    
+    strong {
+      color: $primary-accent-color-dark;
+    }
+  }
+  
+  .studio-team-member {
+    p {
+      color: $text-gray-dark-mode;
+    }
+  }
+  
+  .data-table-caption {
+    color: $text-gray-dark-mode;
+  }
+  
+  .data-table {
+    th, td {
+      border-color: $border-gray-dark-mode;
+    }
+    
+    th {
+      background-color: $bg-light-gray-dark-mode;
+      color: $text-dark-gray-dark-mode;
+    }
+    
+    tr:nth-child(even) td {
+      background-color: $bg-light-gray-dark-mode;
     }
   }
 }

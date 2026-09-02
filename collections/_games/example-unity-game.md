@@ -1,9 +1,9 @@
 ---
 layout: game
 
-title: "Placeholder Unity Game"
-date: 2021-08-10
-date_range: "August 2026"
+title: "Unity Platformer"
+date: 2026-09-02
+date_range: "September 2026"
 category: coursework
 course: "GSD 551"
 is_draft: true
@@ -25,13 +25,13 @@ team_type: "solo"
 my_role: "Programmer"
 
 links:
-- name: "Play on itch.io"
-  url: ""
+- name: "View Source on Github"
+  url: "https://github.com/EmiCB/GSD-551-Platformer"
   icon:
 ---
 
-Placeholder short description: for GSD 551 project once it's completed
+Platformer in Unity.
 
 <!--more-->
 
-This is a placeholder for the first project for my **GSD 551: Tools & Techniques: Contemporary Techniques for Programming of Games** course. 
+This is the platformer project for my **GSD 551: Tools & Techniques: Contemporary Techniques for Programming of Games** course. 
