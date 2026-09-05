@@ -1149,6 +1149,10 @@ $shadow-dark-large: 0 6px 20px rgba(36, 41, 46, 0.6);
   background-color: $bg-light-gray;
   border-radius: $border-radius-medium;
   
+  * {
+    background-color: transparent;
+  }
+  
   ul {
     display: contents;
   }
