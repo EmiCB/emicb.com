@@ -57,7 +57,7 @@ This is a fantasy spin on Thief Catcher, the first project for my **GSD 511: Gam
 - Added UI for the amount of goblins left
 
 ## Asset Attribution
-All of the current art was made by me using Aseprite. Credits for placeholder art and sound effects are listed below:
+All of the current art was made by me using Aseprite. The cover image was made in Canva using my sprites. Credits for placeholder art and sound effects are listed below:
 
 - Goblin capture sound: [Little Creature Hurt Sound](https://pixabay.com/sound-effects/film-special-effects-little-creature-hurt-sound-295405/) by Homemade_SDX on pixabay.com
 - All art for v1.0 from [Sunnyside World](https://danieldiggle.itch.io/sunnyside) by DanielDiggle on itch.io
