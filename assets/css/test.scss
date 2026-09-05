@@ -850,22 +850,24 @@ $shadow-dark-large: 0 6px 20px rgba(36, 41, 46, 0.6);
     }
   }
   
-  // Itch.io upload embeds ship with their own fixed-size black border baked into
-  // the iframe's internal layout, so we scale the iframe up and center-crop it
-  // to fill the slide and push most of that border outside the visible area.
+  // Itch.io upload embeds ship with their own fixed-size internal canvas, so
+  // stretching the iframe to 100% width eliminates side gutters (e.g. a grey
+  // bar) and scaling the height via --itch-embed-scale trims top/bottom
+  // letterboxing while keeping the itch footer bar anchored at the bottom.
+  // Adjust itch_embed_scale per-game front matter since this varies by game.
   .game-itch-embed-container {
     position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
+    --itch-embed-scale: #{$itch-embed-scale};
     
     iframe {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      width: $itch-embed-scale;
-      height: $itch-embed-scale;
-      transform: translate(-50%, -50%);
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: var(--itch-embed-scale);
     }
   }
   
@@ -1028,6 +1030,29 @@ $shadow-dark-large: 0 6px 20px rgba(36, 41, 46, 0.6);
         box-shadow: $shadow-dark-large;
       }
     }
+  }
+}
+
+/* Post Body Images (e.g. asset creation, process shots dropped into the body text) */
+.post-body-image {
+  margin: $spacing-large 0;
+  
+  img {
+    display: block;
+    width: 100%;
+    max-width: $content-width;
+    height: auto;
+    margin: 0 auto;
+    border: 1px solid $border-gray;
+    border-radius: $border-radius-small;
+  }
+  
+  figcaption {
+    text-align: center;
+    font-size: 0.85em;
+    color: $text-gray;
+    font-style: italic;
+    margin-top: $spacing-small;
   }
 }
 
@@ -1618,6 +1643,16 @@ $shadow-dark-large: 0 6px 20px rgba(36, 41, 46, 0.6);
     
     tr:nth-child(even) td {
       background-color: $bg-light-gray-dark-mode;
+    }
+  }
+  
+  .post-body-image {
+    img {
+      border-color: $border-gray-dark-mode;
+    }
+    
+    figcaption {
+      color: $text-gray-dark-mode;
     }
   }
 }

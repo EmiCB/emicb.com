@@ -67,8 +67,9 @@ layout: default
     <div class="game-carousel">
       <div class="carousel-container">
         {%- if page.itch_embed_id -%}
+        {%- assign itch_embed_scale = page.itch_embed_scale | default: 130 -%}
         <div class="carousel-slide active" data-type="itch-embed">
-          <div class="game-itch-embed-container">
+          <div class="game-itch-embed-container" style="--itch-embed-scale: {{ itch_embed_scale }}%;">
             <span class="playable-badge">▶ Playable</span>
             <iframe
               src="https://itch.io/embed-upload/{{ page.itch_embed_id }}?color=333333"

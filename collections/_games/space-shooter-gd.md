@@ -11,6 +11,7 @@ is_draft: false
 asset_root: "/assets/images/games/space-shooter-gd/"
 featured_image: "ssgd-main-v01.png"
 itch_embed_id: 19065703
+itch_embed_scale: 100
 videos:
 gallery:
 

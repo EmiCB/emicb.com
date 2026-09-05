@@ -9,8 +9,9 @@ course: "GSD 511"
 is_draft: false
 
 asset_root: "/assets/images/games/goblin-catcher/"
-featured_image: "main-screen.png"
-itch_embed_id: 18962734
+featured_image: "gc-cover.png"
+itch_embed_id: 19116953
+itch_embed_scale: 100
 videos:
 gallery:
 
@@ -46,20 +47,28 @@ This is a fantasy spin on Thief Catcher, the first project for my **GSD 511: Gam
 - Particle system to highlight the goal area
 - `TileMapLayers` for the world construction
 
-## v2.0 - Expanded Version (for fun)
+## v2.1 - Expanded Version (for fun)
 - Updated player to use `CharacterBody2D` for better movement feel
 - Added custom physics calculation for player collisions with enemies to keep the pushing mechanic
 - Added physics material to make enemies bounce off of surfaces (keeps them from being stuck on area bounds)
 - Added `Game Controller` to track progress
 - Added a win screen that appears after all enemies are moved into the goal area
+- Added my own artwork for characters and landscape
+- Added UI for the amount of goblins left
 
-## Planned Features
-- My own artwork for characters and landscape
-- UI for amount of goblins left
-- More SFX and some background music
-- Pause / setting menu
-- In-level obstacles
+## Asset Attribution
+All of the current art was made by me using Aseprite. Credits for placeholder art and sound effects are listed below:
 
-## Asset Attributions
-- All art is currently from [Sunnyside World](https://danieldiggle.itch.io/sunnyside) by DanielDiggle on itch.io
 - Goblin capture sound: [Little Creature Hurt Sound](https://pixabay.com/sound-effects/film-special-effects-little-creature-hurt-sound-295405/) by Homemade_SDX on pixabay.com
+- All art for v1.0 from [Sunnyside World](https://danieldiggle.itch.io/sunnyside) by DanielDiggle on itch.io
+
+### Aseprite Files
+<div class="post-body-image">
+  <img src="{{ page.asset_root | append: 'asp-tiles.png' | relative_url }}" alt="Tileset created in Aseprite">
+  <figcaption>Tileset made in Aseprite</figcaption>
+</div>
+
+<div class="post-body-image">
+  <img src="{{ page.asset_root | append: 'asp-characters.png' | relative_url }}" alt="Character sprites created in Aseprite">
+  <figcaption>Character sprites made in Aseprite</figcaption>
+</div>
