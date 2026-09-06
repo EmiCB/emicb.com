@@ -9,8 +9,8 @@ course: "GSD 511"
 is_draft: false
 
 asset_root: "/assets/images/games/space-shooter-gd/"
-featured_image: "ssgd-main-v01.png"
-itch_embed_id: 19065703
+featured_image: "ssgd-cover.png"
+itch_embed_id: 19118770
 itch_embed_scale: 100
 videos:
 gallery:
@@ -45,11 +45,11 @@ Side-shooter project for my **GSD 511: Game Development I** course.
   - uses a spreadsheet as a single source of truth
   - see [Game Data Examples](#weapons--enemy-data) section for more details
 - **Equipable Weapons** - a variety of weapons, each with [different stats](#weapons)
-  - NOTE: weapon firing / in-game model is not implemented at this point
+  - NOTE: weapon firing / in-game model is not implemented at this point, just in-game data pulling and weapon label
 - **Enemies** - a variety of enemies, each with [different stats](#enemies)
-  - NOTE: enemies are not yet implemented in game, just the data import
+  - NOTE: enemies are not yet implemented in game, just the data import and sprites
 
-<details class="design-documentation">
+<details class="design-documentation" open>
 <summary>Game Data Examples</summary>
 <div markdown="1">
 
@@ -74,8 +74,21 @@ This data lives in a Google Sheet, which I export to `.csv` and drop into the pr
 | Scout Drone | 20 | 400 | 4.8 | 0.4 |
 | Armored Cruiser | 160 | 120 | 16 | 3.2 |
 
+#### Godot CSV Import Issue
+How to fix the CSV data pulling if files cannot be found when exported to the web:
+1. Check the `Import` tab (usually in the same pane as the `Scene` window)
+2. If it's showing `CSV Translation`, change it to `Keep File (exported as is)`
+3. `Re-Import`
+4. Repeat for each CSV file
+
 </div>
 </details>
 
 ## Asset Attributions
-- All art is currently from [Spaceship Shooter Environment](https://ansimuz.itch.io/spaceship-shooter-environment) by Ansimuz on itch.io
+All of the current art was made by me using Aseprite and Paint.net. The cover image was made in Canva using my sprites.
+
+### Aseprite Files
+<div class="post-body-image">
+  <img src="{{ page.asset_root | append: 'asp-ssgd-characters.png' | relative_url }}" alt="Character sprites made in Aseprite">
+  <figcaption>Character sprites made in Aseprite</figcaption>
+</div>
