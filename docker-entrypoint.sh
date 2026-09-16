@@ -5,6 +5,9 @@ set -e
 rm -rf build/*
 bun run build.js
 
+# Mirror CSVs from assets/documents/ into _data/ so Jekyll can parse them into tables
+bun run sync-csv-data.js
+
 # Watch JS entrypoints and rebuild on change, in the background
 bun --watch build.js &
 

@@ -1,0 +1,8 @@
+enemy_id,wait,y
+enm_scout,1.00,140
+enm_scout,1.00,300
+enm_worker,0.50,100
+enm_worker,0.50,200
+enm_cruiser,2.00,220
+enm_scout,0.80,180
+enm_boss,2.00,150

@@ -68,14 +68,22 @@ layout: default
       <div class="carousel-container">
         {%- if page.itch_embed_id -%}
         {%- assign itch_embed_scale = page.itch_embed_scale | default: 130 -%}
+        {%- assign itch_embed_src = "https://itch.io/embed-upload/" | append: page.itch_embed_id | append: "?color=333333" -%}
         <div class="carousel-slide active" data-type="itch-embed">
           <div class="game-itch-embed-container" style="--itch-embed-scale: {{ itch_embed_scale }}%;">
             <span class="playable-badge">▶ Playable</span>
+            {%- if page.itch_embed_autoplay -%}
             <iframe
-              src="https://itch.io/embed-upload/{{ page.itch_embed_id }}?color=333333"
+              src="{{ itch_embed_src }}"
               frameborder="0"
               allowfullscreen>
             </iframe>
+            {%- else -%}
+            {%- assign featured_image_path = page.asset_root | append: page.featured_image | relative_url -%}
+            <button type="button" class="itch-embed-play-overlay" data-itch-src="{{ itch_embed_src }}" aria-label="Load and play {{ page.title | escape }}"{% if page.featured_image %} style="background-image: url('{{ featured_image_path }}');"{% endif %}>
+              <span class="itch-embed-play-icon">▶</span>
+            </button>
+            {%- endif -%}
           </div>
         </div>
         {%- endif -%}
@@ -181,6 +189,7 @@ layout: default
   </div>
   
   <script src="{{ '/assets/scripts/carousel.js' | relative_url }}"></script>
+  <script src="{{ '/assets/scripts/itch-embed.js' | relative_url }}"></script>
   {%- endif -%}
 
   <!-- Links -->

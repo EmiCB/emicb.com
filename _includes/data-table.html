@@ -1,0 +1,44 @@
+{%- comment -%}
+Renders a downloadable CSV as a table, sourced from
+_data/[game_slug]/[csv_name].csv (auto-mirrored from assets/documents/ by
+sync-csv-data.js). Header row is generated automatically from the CSV's
+column names.
+
+Usage:
+{% include data-table.html game_slug="space-shooter-gd" csv_name="weapons" download_label="weapons.csv" %}
+
+Params:
+- game_slug (required): matches the _data/ and assets/documents/ subfolder name
+- csv_name (required): CSV filename without the .csv extension
+- download_label (optional): text for the download link, defaults to "[csv_name].csv"
+{%- endcomment -%}
+
+{%- assign rows = site.data[include.game_slug][include.csv_name] -%}
+{%- assign download_label = include.download_label | default: include.csv_name | append: ".csv" -%}
+
+[Download {{ download_label }}]({{ '/assets/documents/' | append: include.game_slug | append: '/' | append: include.csv_name | append: '.csv' | relative_url }})
+
+<div class="data-table-wrapper">
+<table class="data-table">
+  <thead>
+    <tr>
+      {%- for column in rows[0] -%}
+        <th>{{ column[0] }}</th>
+      {%- endfor -%}
+    </tr>
+  </thead>
+  <tbody>
+    {%- for row in rows -%}
+    <tr>
+      {%- for column in row -%}
+        {%- assign cell_value = column[1] -%}
+        {%- if cell_value contains '.' -%}
+          {%- assign cell_value = cell_value | plus: 0 | round: 2 -%}
+        {%- endif -%}
+        <td>{{ cell_value }}</td>
+      {%- endfor -%}
+    </tr>
+    {%- endfor -%}
+  </tbody>
+</table>
+</div>
