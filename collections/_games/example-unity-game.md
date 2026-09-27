@@ -11,7 +11,8 @@ is_draft: true
 asset_root: "/assets/images/games/"
 featured_image: 
 itch_embed_id: 19416549
-itch_embed_scale: 100
+itch_embed_width: 980
+itch_embed_height: 640
 videos:
 gallery:
 
@@ -76,12 +77,14 @@ To coordinate the `GatedPlatform`s with the rest of the game state, `GameManager
 ```csharp
 private List<GatedPlatform> _gatedPlatforms = new List<GatedPlatform>();
 ```
+
 2. Create a method for `GatedPlatform` to call and register itself when each object is instantiated
 ```csharp
 public void RegisterGatedPlatform(GatedPlatform platform) {
   _gatedPlatforms.Add(platform);
 }
 ```
+
 3. Update all `GatedPlatform` status when the game state changes (in this case, in the `CollectItem()` and `ResetGameplay()` methods)
 ```csharp
 // check if any new gates are unlocked
