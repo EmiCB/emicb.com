@@ -8,9 +8,9 @@ category: coursework
 course: "GSD 551"
 is_draft: false
 
-asset_root: "/assets/images/games/"
-featured_image: 
-itch_embed_id: 19416549
+asset_root: "/assets/images/games/not-backwards-compatible/"
+featured_image: "screenshot.png"
+itch_embed_id: 19442353
 itch_embed_width: 980
 itch_embed_height: 640
 videos:
@@ -19,6 +19,7 @@ gallery:
 # Technical Tags
 tags:
 - Unity
+- Rider
 - C#
 - Web
 
@@ -100,7 +101,7 @@ foreach (GatedPlatform platform in _gatedPlatforms) {
 [View the source code on GitHub](https://github.com/EmiCB/GSD-551-Platformer/blob/main/Assets/Scripts/GameManager.cs)
 
 #### Gated Platform prefab
-Finally, we can make each `GatedPlatform` into a prefab so it can be easily re-used. Each `GatedPlatform` consists of a `Tilemap` GameObject with the `TilemapCollider2D` and `Gated Platform (Script)` components attached, as well as a `TextMeshPro` child to display the unlock status. It is also tagged with "Ground" for compatibility with they player's `GroundCheck` and set to the "Ground" sorting layer to keep the game visually consistent.
+Finally, we can make each `GatedPlatform` into a prefab so it can be easily re-used. Each `GatedPlatform` consists of a `Tilemap` GameObject with the `TilemapCollider2D` and `Gated Platform (Script)` components attached, as well as a `TextMeshPro` child to display the unlock status. It is also tagged with "Ground" for compatibility with the player's `GroundCheck` and set to the "Ground" sorting layer to keep the game visually consistent.
 
 Sample Scene > GameRoot > Grid > GatedPlatforms > StatusText
 
@@ -115,3 +116,4 @@ Since the scale of this game is small, this approach makes the most sense from a
 - Font: https://datagoblin.itch.io/monogram
 - Tileset: https://ansimuz.itch.io/sunnyland-fort-of-illusion
 - UI: https://oinky55.itch.io/fantasy-ui
+- Music and SFX: https://leohpaz.itch.io/minifantasy-dungeon-sfx-pack
