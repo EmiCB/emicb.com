@@ -2,11 +2,11 @@
 layout: game
 
 title: "Oops, Not Backwards-Compatible"
-date: 2026-09-26
+date: 2026-09-27
 date_range: "September 2026"
 category: coursework
 course: "GSD 551"
-is_draft: true
+is_draft: false
 
 asset_root: "/assets/images/games/"
 featured_image: 
@@ -21,6 +21,10 @@ tags:
 - Unity
 - C#
 - Web
+
+# Design Focus Tags
+design_tags:
+- Level
 
 # Team Info
 team_type: "solo"
@@ -42,11 +46,11 @@ Uh oh, you opened your old platformer prototype after a game engine update and n
 This is the 2D platformer project for my **GSD 551: Tools & Techniques: Contemporary Techniques for Programming of Games** course. 
 
 ## Features
-- Collectibles
-- Full Platformer Game Loop
-- Horizontal Camera Tracking
-- Player Animations
-- Unlockable Platforms
+- **Collectibles** - objects around the map that can be picked up and contribute to unlocking new platforms and completing the level
+- **Full Platformer Game Loop** - game state tracked with a `GameManager`, which ends the game and displays a win screen when all collectibles are acquired, or a lose screen when the player falls off of the map, both of which have a button to reset the game
+- **Horizontal Camera Tracking** - custom script to only follow player horizontally, limiting vertical vision
+- **Player Animations** - utilizes Unity's animation system to give player running and idle animations
+- **Unlockable Platforms** - certain platforms can be unlocked with collectibles, see [Unique Feature: Unlockable Platforms](#rationale) for more details on why this feature was implemented and how
 
 ## Design Documentation
 *Press `` ` `` to expand or collapse all sections*
@@ -54,6 +58,7 @@ This is the 2D platformer project for my **GSD 551: Tools & Techniques: Contempo
 <details class="design-documentation">
 <summary>Unique Feature: Unlockable Platforms</summary>
 <div markdown="1">
+
 ### Rationale
 For my unique feature, I chose to add platforms that could be unlocked by obtaining certain amounts of collectibles for each one. I opened an old project recently, and was reminded of the horrors of upgrading to a new engine version (thankfully, this one migrated with no issues). I thought it would be fun to make a platformer based on this concept: the player is stuck in an old project that the developer decided to auto-upgrade to a new engine version, but the level broke. The player has to collect pieces of data in-game to repair platforms and complete the level. I think this adds more meaning and motivation to gathering the collectibles, while also opening up opportunities for more interesting level design.
 
@@ -63,13 +68,12 @@ This class is responsible for defining and controlling each unlockable platform.
 
 Similar to the `Collectible` we wrote in class, the `GatedPlatform`s also register themselves to the game manager upon instantiation.
 
-To visually distinguish these platforms from the rest of the level, I made gated platforms have a ghosting effect by changing the alpha value of their material and disabling their `TilemapCollider2D` component.
+To visually distinguish these platforms from the rest of the level, I made gated platforms have a ghosting effect by changing the alpha value of their material and disabling their `TilemapCollider2D` component. I also added a world-space `TextMeshPro` element to display the current status towards unlocking a platform.
 
-I also added a world-space `TextMeshPro` element to display the current status towards unlocking a platform.
-
-...
+After the required amount of collectibles have been collected by the player, the platform becomes solid and the collider is enabled. This is visually shown by the platform's alpha being reset to 1 and the unlock status text disappearing.
 
 [View the source code on GitHub](https://github.com/EmiCB/GSD-551-Platformer/blob/main/Assets/Scripts/GatedPlatform.cs)
+
 #### `GameManager.cs`
 To coordinate the `GatedPlatform`s with the rest of the game state, `GameManager` had to be updated similarly to when we added the `Collectible`s in class. 
 
@@ -93,8 +97,10 @@ foreach (GatedPlatform platform in _gatedPlatforms) {
 }
 ```
 
+[View the source code on GitHub](https://github.com/EmiCB/GSD-551-Platformer/blob/main/Assets/Scripts/GameManager.cs)
+
 #### Gated Platform prefab
-Finally, we can make each `GatedPlatform` into a prefab so it can be easily re-used. Each `GatedPlatform` consists of a `Tilemap` GameObject with the `TilemapCollider2d` and `Gated Platform (Script)` components attached, as well as a `TextMeshPro` child to display the unlock status.
+Finally, we can make each `GatedPlatform` into a prefab so it can be easily re-used. Each `GatedPlatform` consists of a `Tilemap` GameObject with the `TilemapCollider2D` and `Gated Platform (Script)` components attached, as well as a `TextMeshPro` child to display the unlock status. It is also tagged with "Ground" for compatibility with they player's `GroundCheck` and set to the "Ground" sorting layer to keep the game visually consistent.
 
 Sample Scene > GameRoot > Grid > GatedPlatforms > StatusText
 
@@ -105,7 +111,7 @@ Since the scale of this game is small, this approach makes the most sense from a
 </details>
 
 ## Asset Attributions
-- Character Base: https://n3cloud.itch.io/2d-pixel-art-character-template-platformer-metroidvania
+- Player model from: https://n3cloud.itch.io/2d-pixel-art-character-template-platformer-metroidvania
 - Font: https://datagoblin.itch.io/monogram
 - Tileset: https://ansimuz.itch.io/sunnyland-fort-of-illusion
 - UI: https://oinky55.itch.io/fantasy-ui
