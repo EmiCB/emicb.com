@@ -6,7 +6,8 @@ date: 2026-08-13
 date_range: "August 2026"
 category: coursework
 course: "UEFN Bootcamp"
-is_draft: true
+status: shipped
+page_complete: false
 
 asset_root: "/assets/images/games/core-td/"
 featured_image: "thumbnail.png"

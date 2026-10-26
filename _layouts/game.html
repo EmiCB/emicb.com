@@ -7,16 +7,18 @@ layout: default
 
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <!-- Draft banner -->
-  {%- if page.is_draft -%}
-  <div class="draft-banner">
-    <strong>Work in Progress:</strong> This entry is still being written and may be incomplete.
+  <!-- Page incomplete callout -->
+  {%- if page.page_complete == false -%}
+  <div class="page-incomplete-callout">
+    <strong>Write-up in progress:</strong> This page is still being written, more coming soon.
   </div>
   {%- endif -%}
 
   <header class="post-header game-page-header">
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
     <p class="post-meta">
+      <!-- Status badge -->
+      {% include game-status-badge.html status=page.status %}
       <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
         {{ page.date | date: date_format }}

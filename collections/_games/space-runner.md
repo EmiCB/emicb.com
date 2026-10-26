@@ -5,7 +5,8 @@ title: "Space Runner"
 date: 2018-08-19
 date_range: "Aug 2018"
 category: jam
-is_draft: true
+status: shipped
+page_complete: false
 
 asset_root: "assets/images/games/space-runner/"
 featured_image: "space-runner.png"

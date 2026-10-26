@@ -6,7 +6,8 @@ date: 2026-10-07
 date_range: "October 2026"
 category: coursework
 course: "GSD 511"
-is_draft: false
+status: in-development
+page_complete: false
 
 asset_root: "/assets/images/games/"
 featured_image: 

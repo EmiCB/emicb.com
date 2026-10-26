@@ -5,7 +5,8 @@ title: "A Face Against Time"
 date: 2017-08-10
 date_range: "Aug 2017"
 category: jam
-is_draft: true
+status: shipped
+page_complete: false
 
 asset_root: "assets/images/games/face-against-time/"
 featured_image: "face-against-time-main.png"

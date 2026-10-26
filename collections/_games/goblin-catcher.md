@@ -6,7 +6,8 @@ date: 2026-08-25
 date_range: "August 2026"
 category: coursework
 course: "GSD 511"
-is_draft: false
+status: shipped
+page_complete: true
 
 asset_root: "/assets/images/games/goblin-catcher/"
 featured_image: "gc-cover.png"

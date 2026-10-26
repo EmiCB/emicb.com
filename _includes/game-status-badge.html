@@ -1,0 +1,18 @@
+{%- comment -%}
+Renders the status badge for a game (shipped, in development, or paused),
+with the label and icon sourced from _data/game-statuses.yml. Renders nothing
+if no status is given or the status isn't in the data file.
+
+Usage:
+{% include game-status-badge.html status=page.status %}
+
+Params:
+- status (optional): key from _data/game-statuses.yml (shipped, in-development, paused)
+{%- endcomment -%}
+
+{%- if include.status -%}
+  {%- assign game_status = site.data.game-statuses[include.status] -%}
+  {%- if game_status -%}
+<span class="game-status-badge status-{{ include.status }}"><span class="game-status-icon" aria-hidden="true">{{ game_status.icon }}</span>{{ game_status.label }}</span>
+  {%- endif -%}
+{%- endif -%}

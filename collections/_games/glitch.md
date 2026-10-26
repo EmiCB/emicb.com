@@ -6,7 +6,8 @@ date: 2022-05-7
 date_range: "May 2022"
 category: coursework
 course: "CS 498"
-is_draft: true
+status: shipped
+page_complete: false
 
 asset_root: 
 featured_image: 

@@ -6,7 +6,8 @@ date: 2026-09-27
 date_range: "September 2026"
 category: coursework
 course: "GSD 551"
-is_draft: false
+status: shipped
+page_complete: true
 
 asset_root: "/assets/images/games/not-backwards-compatible/"
 featured_image: "screenshot.png"

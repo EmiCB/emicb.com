@@ -5,7 +5,8 @@ title: "Radiation Rush"
 date: 2021-01-04
 date_range: "Jan 2021"
 category: jam
-is_draft: true
+status: shipped
+page_complete: false
 
 asset_root: "assets/images/games/radiation-rush/"
 featured_image: "radiation-rush-screenshot.png"

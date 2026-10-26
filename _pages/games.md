@@ -128,11 +128,9 @@ permalink: /games/
     {%- assign design_tag_slugs = design_tag_slugs | append: tag_slug | append: " " -%}
   {%- endfor -%}
   {%- assign course_slug = game.course | slugify -%}
-  <article class="game-card{% if game.is_draft %} is-draft{% endif %}" data-team-tag="{{ team_tag_slug }}" data-technical-tags="{{ technical_tag_slugs | strip }}" data-design-tags="{{ design_tag_slugs | strip }}" data-course="{{ course_slug }}">
-    <!-- Draft badge -->
-    {%- if game.is_draft -%}
-      <div class="draft-badge">WIP</div>
-    {%- endif -%}
+  <article class="game-card{% if game.page_complete == false %} is-page-incomplete{% endif %}" data-team-tag="{{ team_tag_slug }}" data-technical-tags="{{ technical_tag_slugs | strip }}" data-design-tags="{{ design_tag_slugs | strip }}" data-course="{{ course_slug }}">
+    <!-- Status badge -->
+    {% include game-status-badge.html status=game.status %}
     <!-- Featured image -->
     {%- if game.featured_image -%}
       {% assign featured_image = game.asset_root | append: game.featured_image %}
@@ -142,7 +140,8 @@ permalink: /games/
     {%- endif -%}
     <!-- Title and date -->
     <h3><a tabindex="0" role="button" aria-pressed="false" href="{{ game.url | relative_url }}" class="game-card-link">{{ game.title | escape }}</a></h3>
-    <p>{{ game.date_range }}</p>
+    <!-- Date and page incomplete label -->
+    <p>{{ game.date_range }}{%- if game.page_complete == false -%}<span class="page-incomplete-label"> · Write-up in progress</span>{%- endif -%}</p>
     <!-- Tags -->
     {%- if game.tags or game.design_tags or game.team_type -%}
       <div class="game-tags-container">
@@ -181,11 +180,9 @@ permalink: /games/
     {%- assign tag_slug = tag | slugify -%}
     {%- assign design_tag_slugs = design_tag_slugs | append: tag_slug | append: " " -%}
   {%- endfor -%}
-  <article class="game-card{% if game.is_draft %} is-draft{% endif %}" data-team-tag="{{ team_tag_slug }}" data-technical-tags="{{ technical_tag_slugs | strip }}" data-design-tags="{{ design_tag_slugs | strip }}">
-    <!-- Draft badge -->
-    {%- if game.is_draft -%}
-      <div class="draft-badge">WIP</div>
-    {%- endif -%}
+  <article class="game-card{% if game.page_complete == false %} is-page-incomplete{% endif %}" data-team-tag="{{ team_tag_slug }}" data-technical-tags="{{ technical_tag_slugs | strip }}" data-design-tags="{{ design_tag_slugs | strip }}">
+    <!-- Status badge -->
+    {% include game-status-badge.html status=game.status %}
     <!-- Featured image -->
     {%- if game.featured_image -%}
       {% assign featured_image = game.asset_root | append: game.featured_image %}
@@ -195,7 +192,8 @@ permalink: /games/
     {%- endif -%}
     <!-- Title and date -->
     <h3><a tabindex="0" role="button" aria-pressed="false" href="{{ game.url | relative_url }}" class="game-card-link">{{ game.title | escape }}</a></h3>
-    <p>{{ game.date_range }}</p>
+    <!-- Date and page incomplete label -->
+    <p>{{ game.date_range }}{%- if game.page_complete == false -%}<span class="page-incomplete-label"> · Write-up in progress</span>{%- endif -%}</p>
     <!-- Tags -->
     {%- if game.tags or game.design_tags or game.team_type -%}
       <div class="game-tags-container">
@@ -234,11 +232,9 @@ permalink: /games/
     {%- assign tag_slug = tag | slugify -%}
     {%- assign design_tag_slugs = design_tag_slugs | append: tag_slug | append: " " -%}
   {%- endfor -%}
-  <article class="game-card{% if game.is_draft %} is-draft{% endif %}" data-team-tag="{{ team_tag_slug }}" data-technical-tags="{{ technical_tag_slugs | strip }}" data-design-tags="{{ design_tag_slugs | strip }}">
-    <!-- Draft badge -->
-    {%- if game.is_draft -%}
-      <div class="draft-badge">WIP</div>
-    {%- endif -%}
+  <article class="game-card{% if game.page_complete == false %} is-page-incomplete{% endif %}" data-team-tag="{{ team_tag_slug }}" data-technical-tags="{{ technical_tag_slugs | strip }}" data-design-tags="{{ design_tag_slugs | strip }}">
+    <!-- Status badge -->
+    {% include game-status-badge.html status=game.status %}
     <!-- Featured image -->
     {%- if game.featured_image -%}
       {% assign featured_image = game.asset_root | append: game.featured_image %}
@@ -248,7 +244,8 @@ permalink: /games/
     {%- endif -%}
     <!-- Title and date -->
     <h3><a tabindex="0" role="button" aria-pressed="false" href="{{ game.url | relative_url }}" class="game-card-link">{{ game.title | escape }}</a></h3>
-    <p>{{ game.date_range }}</p>
+    <!-- Date and page incomplete label -->
+    <p>{{ game.date_range }}{%- if game.page_complete == false -%}<span class="page-incomplete-label"> · Write-up in progress</span>{%- endif -%}</p>
     <!-- Tags -->
     {%- if game.tags or game.design_tags or game.team_type -%}
       <div class="game-tags-container">

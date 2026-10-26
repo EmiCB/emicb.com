@@ -1,0 +1,12 @@
+shipped:
+  label: "Shipped"
+  icon: "✓"
+in-development:
+  label: "In Development"
+  icon: "⚙︎"
+paused:
+  label: "Paused"
+  icon: "⏸︎"
+demo:
+  label: "Demo"
+  icon: "▶︎"

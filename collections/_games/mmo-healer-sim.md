@@ -5,7 +5,8 @@ title: "MMO Healer Simulator"
 date: 2020-04-25
 date_range: "Apr 2020"
 category: jam
-is_draft: true
+status: shipped
+page_complete: false
 
 asset_root: "assets/images/games/mmo-healer-sim/"
 featured_image: "mmo-start.png"

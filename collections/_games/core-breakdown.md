@@ -5,7 +5,8 @@ title: "Core Breakdown"
 date: 2017-05-18
 date_range: "May 2017"
 category: jam
-is_draft: true
+status: shipped
+page_complete: false
 
 asset_root: "assets/images/games/core-breakdown/"
 featured_image: "cb-main.png"

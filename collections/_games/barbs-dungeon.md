@@ -6,7 +6,8 @@ date: 2024-05-10
 date_range: "May 2024"
 category: coursework
 course: "GSD 405"
-is_draft: false
+status: demo
+page_complete: true
 
 asset_root: "/assets/images/games/barbs-dungeon/"
 featured_image: "character-select.png"

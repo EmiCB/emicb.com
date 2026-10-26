@@ -62,6 +62,19 @@ $tag-course-bg-dark: #1b3a1e;
 $tag-course-border-dark: #66bb6a;
 $tag-course-text-dark: #a5d6a7;
 
+// Status colors
+$status-shipped-bg: #2e7d32;
+$status-shipped-bg-dark: #388e3c;
+
+$status-in-development-bg: #0277bd;
+$status-in-development-bg-dark: #0288d1;
+
+$status-paused-bg: #757575;
+$status-paused-bg-dark: #616161;
+
+$status-demo-bg: #7b1fa2;
+$status-demo-bg-dark: #8e24aa;
+
 // Spacing
 $spacing-unit: 30px !default;
 $spacing-small: 10px;
@@ -83,6 +96,7 @@ $border-radius-pill: 25px;
 $carousel-btn-size: 40px;
 $carousel-indicator-width: 30px;
 $carousel-indicator-height: 3px;
+$game-card-image-aspect-ratio: 16 / 9;
 
 // Transitions
 $transition-fast: 0.15s ease;
@@ -435,32 +449,49 @@ $shadow-dark-large: 0 6px 20px rgba(36, 41, 46, 0.6);
   display: none;
 }
 
-/* Draft Indicators */
-.draft-badge {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-color: #ff9800;
+/* Game Status Badge */
+.game-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: $border-radius-pill;
   color: $white;
-  padding: 6px 16px;
-  font-size: 0.75em;
+  font-size: 0.8em;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  border-bottom-left-radius: $border-radius-medium;
-  border-top-right-radius: $border-radius-medium;
-  box-shadow: 0 2px 8px rgba(255, 152, 0, 0.4);
-  z-index: 10;
+  
+  * {
+    background-color: transparent;
+  }
+  
+  &.status-shipped {
+    background-color: $status-shipped-bg;
+  }
+  
+  &.status-in-development {
+    background-color: $status-in-development-bg;
+  }
+  
+  &.status-paused {
+    background-color: $status-paused-bg;
+  }
+  
+  &.status-demo {
+    background-color: $status-demo-bg;
+  }
 }
 
-.draft-banner {
-  background-color: #fff3cd;
-  border: 2px solid #ff9800;
+/* Page Incomplete Indicators */
+.page-incomplete-callout {
+  background-color: $bg-light-gray;
+  border: 2px dashed $text-gray;
   border-radius: $border-radius-medium;
   padding: $spacing-medium $spacing-large;
   margin-bottom: $spacing-large;
   text-align: center;
-  color: #856404;
+  color: $text-gray;
   font-size: 1em;
   
   * {
@@ -468,7 +499,7 @@ $shadow-dark-large: 0 6px 20px rgba(36, 41, 46, 0.6);
   }
   
   strong {
-    color: #e65100;
+    color: $text-dark-gray;
   }
 }
 
@@ -493,6 +524,8 @@ $shadow-dark-large: 0 6px 20px rgba(36, 41, 46, 0.6);
   img {
     width: 100%;
     height: auto;
+    aspect-ratio: $game-card-image-aspect-ratio;
+    object-fit: cover;
     border-radius: $border-radius-small;
     margin-bottom: $spacing-medium;
   }
@@ -533,6 +566,21 @@ $shadow-dark-large: 0 6px 20px rgba(36, 41, 46, 0.6);
     color: $text-gray;
     font-size: 0.9em;
     margin: 5px 0;
+  }
+  
+  /* Status badge sits in the top corner of a card, over the featured image */
+  .game-status-badge {
+    position: absolute;
+    top: $spacing-small;
+    right: $spacing-small;
+    box-shadow: $shadow-small;
+    z-index: 10;
+    // Let clicks fall through to the stretched card link
+    pointer-events: none;
+  }
+  
+  .page-incomplete-label {
+    font-style: italic;
   }
   
   .game-excerpt {
@@ -1652,19 +1700,37 @@ pre {
     }
   }
   
-  .draft-badge {
-    background-color: #f57c00;
+  .game-status-badge {
     color: $white;
-    box-shadow: 0 2px 8px rgba(245, 124, 0, 0.6);
+    
+    * {
+      color: inherit;
+    }
+    
+    &.status-shipped {
+      background-color: $status-shipped-bg-dark;
+    }
+    
+    &.status-in-development {
+      background-color: $status-in-development-bg-dark;
+    }
+    
+    &.status-paused {
+      background-color: $status-paused-bg-dark;
+    }
+    
+    &.status-demo {
+      background-color: $status-demo-bg-dark;
+    }
   }
   
-  .draft-banner {
-    background-color: #4a3f1a;
-    border-color: #f57c00;
-    color: #ffb74d;
+  .page-incomplete-callout {
+    background-color: $bg-light-gray-dark-mode;
+    border-color: $text-gray-dark-mode;
+    color: $text-gray-dark-mode;
     
     strong {
-      color: #ff9800;
+      color: $text-dark-gray-dark-mode;
     }
   }
   

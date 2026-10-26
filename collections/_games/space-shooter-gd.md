@@ -6,7 +6,8 @@ date: 2026-09-16
 date_range: "September 2026"
 category: coursework
 course: "GSD 511"
-is_draft: false
+status: shipped
+page_complete: true
 
 asset_root: "/assets/images/games/space-shooter-gd/"
 featured_image: "ssgd-cover.png"
