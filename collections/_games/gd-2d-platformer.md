@@ -43,17 +43,19 @@ Platformer project for my **GSD 511: Game Development I** course.
 - Move with `A`, `D`
 - Jump with `SPACE`
 - Interact with `E`
+- Fire with `LMB`
 - Reload with `R`
+- Burst fire ability with `F`
 - Quit with `ESC`
   - Note: Godot's `get_tree().quit()` will freeze web embeds, so please refresh the page after using this functionality
 - Reload the level with `~`
 
 ## v0.2 - Lecture Version + Shooting Mechanic & Reskin Implementation
-- shooting variations:
-  - default - single projectile
-  - burst - 3 projectiles in short sequence
+- Multiple firing variations:
+  - Default - single projectile
+  - Burst - 3 projectiles in short sequence
   - 
-- ...
+- Projectiles stun enemies on hit and give a visible sprite indication
 
 ## v0.1 - Lecture Version
 - Main menu utilizing Godot's UI system and `Theme` resource
