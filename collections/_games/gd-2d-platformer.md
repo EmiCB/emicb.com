@@ -2,7 +2,7 @@
 layout: game
 
 title: "Godot 2D Platformer"
-date: 2026-10-27
+date: 2026-11-04
 date_range: "October 2026"
 category: coursework
 course: "GSD 511"
@@ -11,7 +11,7 @@ page_complete: false
 
 asset_root: "/assets/images/games/gd-2d-platformer/"
 featured_image: "platform.png"
-itch_embed_id: 20089059
+itch_embed_id: 20289551
 itch_embed_width: 640
 itch_embed_height: 380
 videos:
@@ -37,24 +37,27 @@ Platformer project for my GSD 511 course.
 
 <!--more-->
 
-Platformer project for my **GSD 511: Game Development I** course.
+Platformer project for my **GSD 511: Game Development I** course. More description will be added once it takes more shape outside of the tutorial videos.
 
 ## Controls
 - Move with `A`, `D`
 - Jump with `SPACE`
 - Interact with `E`
 - Fire with `LMB`
+- Fire charged shot by holding `LMB`
+- Fire burst shot with `F`
 - Reload with `R`
-- Burst fire ability with `F`
 - Quit with `ESC`
   - Note: Godot's `get_tree().quit()` will freeze web embeds, so please refresh the page after using this functionality
 - Reload the level with `~`
 
-## v0.2 - Lecture Version + Shooting Mechanic & Reskin Implementation
+## v0.3 - Lecture Version + Shooting Mechanic & Reskin Implementation
+- Enemies traverse platforms and do not fall off edges
+- Weapon can be picked up and equipped
 - Multiple firing variations:
   - Default - single projectile
   - Burst - 3 projectiles in short sequence
-  - 
+  - Charge - consumes 2 projectiles, fires a more powerful shot after charging for a time
 - Projectiles stun enemies on hit and give a visible sprite indication
 
 ## v0.1 - Lecture Version
