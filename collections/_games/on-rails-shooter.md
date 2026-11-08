@@ -2,7 +2,7 @@
 layout: game
 
 title: "On-Rails Space Shooter - Combat Prototype"
-date: 2026-10-29
+date: 2026-11-08
 date_range: "October 2026"
 category: coursework
 course: "GSD 551"
@@ -11,7 +11,7 @@ page_complete: false
 
 asset_root: "/assets/images/games/on-rails/"
 featured_image: "on-rails.png"
-itch_embed_id: 20132781
+itch_embed_id: 20379593
 itch_embed_width: 640
 itch_embed_height: 380
 videos:
@@ -64,6 +64,11 @@ The current version of this game is a combat prototype following in-class lectur
 - Double-tap `LB` or `RB` to perform a barrel roll (left or right)
 </div></details>
 
+## v0.2.0 - Enemy Systems Prototype
+- **Enemy System Refactor** - now uses `Enemy.cs` as a base class and Prefab variants to support multiple specialized enemy types
+- **Scout Enemy** - moves side-to-side horizontally in player's path
+- **Heavy Fighter Enemy** - tracks player position and moves toward them in the XY plane
+
 ## v0.1.0 - Combat Prototype
 - **On-Rails Flight** - move horizontally and vertically within a bounding-box, scrolling environment
 - **Movement Feedback and Maneuvers** - visual ship response to movement, left and right banking, and directional barrel rolls with horizontal momentum
@@ -73,7 +78,7 @@ The current version of this game is a combat prototype following in-class lectur
 - **Health and Damage** - targets and player utilize reusable health component, allowing them to receive damage and enter a defeat state when their health reaches 0
 
 ## Upcoming Improvements / Considerations
-- ObjectPooling for frequently used GameObjects (i.e. projectiles, hazards, targets) to avoid repeated insantiation and deletion
+- ObjectPooling for frequently used GameObjects (i.e. projectiles, hazards, targets) to avoid repeated instantiation and deletion
 - Cohesive visual update after prototyping stage
 - Comprehensive documentation on both custom editor tools and code
 - Removal of .idea folder on GitHub because I forgot to add it to the .gitignore...
